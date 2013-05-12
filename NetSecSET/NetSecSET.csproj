@@ -53,9 +53,12 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Key.cs" />
     <Compile Include="Model\Merchant.cs" />
     <Compile Include="Model\OrderInfo.cs" />
     <Compile Include="Model\PaymentInfo.cs" />
+    <Compile Include="Security\MD5.cs" />
+    <Compile Include="Security\RSA.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

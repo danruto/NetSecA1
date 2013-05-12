@@ -8,7 +8,9 @@ namespace NetSecSET.Model
 {
     class Customer
     {
-        public UInt32 createDualSignature(int publicKey, int privateKey)
+        private string m_TAG = "Customer";
+
+        public double createDualSignature(Key publicKey, Key privateKey)
         {
             // get both the OI and PI from file
             OrderInfo OI = Util.loadOI(Util.m_OIFileName);
@@ -22,29 +24,31 @@ namespace NetSecSET.Model
 
             UInt32 POMD = createPOMD(combinedHash);
 
-            UInt32 DS = encrypt(POMD, privateKey);
+            double DS = RSA.encrypt(POMD, privateKey.k, privateKey.n);
 
-            return POMD;
+            return DS;
         }
 
         public UInt16 createPIMDHash(PaymentInfo PI)
         {
+            Util.Log(m_TAG, "creating PIMD hash");
             return 2;
         }
 
         public UInt16 createOIMDHash(OrderInfo OI)
         {
+            Util.Log(m_TAG, "creating OIMD hash");
             return 2;
         }
 
         public UInt32 createPOMD(UInt32 POMD)
         {
+            Util.Log(m_TAG, "creating POMD");
             return 2;
         }
 
-        public UInt32 encrypt(UInt32 POMD, int Key)
-        {
-            return 2;
-        }
+        
     }
+
+    
 }

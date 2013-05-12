@@ -8,5 +8,10 @@ namespace NetSecSET.Model
 {
     class Merchant
     {
+        private string m_TAG = "Merchant";
+
+        public void decrypt(int DS, OrderInfo OI, int PIMD)
+        {
+        }
     }
 }

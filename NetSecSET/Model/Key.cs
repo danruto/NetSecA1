@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace NetSecSET.Model
 {
-    class Bank
+    class Key
     {
-        private string m_TAG = "Bank";
-
-        public void decrypt(int DS, PaymentInfo PI, int OIMD)
-        {
-        }
+        public int k { get; set; }
+        public int n { get; set; }
     }
 }
