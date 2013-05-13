@@ -11,6 +11,7 @@ namespace NetSecSET.Security
 {
     class MD5
     {
+        // http://tools.ietf.org/html/rfc1321
         public string getMD5(String input)
         {
             byte[] data = Encoding.UTF8.GetBytes(input);

@@ -96,10 +96,8 @@ namespace NetSecSET.Model
             string s = "";
             s += "\r\nLog Entry : ";
             s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
-            s += "\n  :";
-            s += "\n Tag: " + tag;
-            s += "\n  :";
-            s += "\n  :" + msg;
+            s += " Tag: " + tag;
+            s += " Message :" + msg;
             s += "\n-------------------------------";
 
             string sSource;
