@@ -10,8 +10,15 @@ namespace NetSecSET.Model
     {
         private string m_TAG = "Customer";
 
+        public void setup(Key publicKey, Key privateKey)
+        {
+            createDualSignature(publicKey, privateKey);
+        }
+
         public double createDualSignature(Key publicKey, Key privateKey)
         {
+            Util.Log(m_TAG, "creating dual signature...");
+
             // get both the OI and PI from file
             OrderInfo OI = Util.loadOI(Util.m_OIFileName);
             PaymentInfo PI = Util.loadPI(Util.m_PIFileName);

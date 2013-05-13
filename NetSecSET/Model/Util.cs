@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
+using System.Diagnostics;
 
 namespace NetSecSET.Model
 {
@@ -92,15 +93,30 @@ namespace NetSecSET.Model
 
         public static void Log(string tag, string msg)
         {
-            TextWriter w = File.AppendText("log.txt");
-            w.Write("\r\nLog Entry : ");
-            w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
-                DateTime.Now.ToLongDateString());
-            w.WriteLine("  :");
-            w.WriteLine(" Tag:{0}", tag);
-            w.WriteLine("  :");
-            w.WriteLine("  :{0}", msg);
-            w.WriteLine("-------------------------------");
+            string s = "";
+            s += "\r\nLog Entry : ";
+            s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
+            s += "\n  :";
+            s += "\n Tag: " + tag;
+            s += "\n  :";
+            s += "\n  :" + msg;
+            s += "\n-------------------------------";
+
+            string sSource;
+            string sLog;
+
+            sSource = "NetSecSET";
+            sLog = "Application";
+
+            if (!EventLog.SourceExists(sSource))
+                EventLog.CreateEventSource(sSource, sLog);
+
+            string sd = "BoctorSucks";
+            // Write an informational entry to the event log.    
+            EventLog.WriteEntry(sSource, sd);
         }
+
+        
+
     }
 }
