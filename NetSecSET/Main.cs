@@ -92,7 +92,8 @@ namespace NetSecSET
 
             foreach (EventLogEntry log in eventLog.Entries)
             {
-               s = Convert.ToBase64String(log.Data);
+                if (log.Source == "NetSecSET")
+                    s += log.Message.ToString();
             }
 
             //logBox.Text = s;

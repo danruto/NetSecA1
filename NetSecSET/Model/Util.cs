@@ -96,8 +96,8 @@ namespace NetSecSET.Model
             string s = "";
             s += "\r\nLog Entry : ";
             s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
-            s += " Tag: " + tag;
-            s += " Message :" + msg;
+            s += "\n Tag: " + tag;
+            s += "\n Message :" + msg;
             s += "\n-------------------------------";
 
             string sSource;
@@ -109,9 +109,8 @@ namespace NetSecSET.Model
             if (!EventLog.SourceExists(sSource))
                 EventLog.CreateEventSource(sSource, sLog);
 
-            string sd = "BoctorSucks";
             // Write an informational entry to the event log.    
-            EventLog.WriteEntry(sSource, sd);
+            EventLog.WriteEntry(sSource, s);
         }
 
         
