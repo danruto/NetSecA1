@@ -16,9 +16,11 @@ namespace NetSecSET.Model
         public static string m_PIFileName = "PI.txt";
         public static string m_CustCertFileName = "CustomerCertificate.txt";
         public static string m_MerchantCertFileName = "MerchantCertificate.txt";
-        public static string m_BanktCertFileName = "BankCertificate.txt";
+        public static string m_BankCertFileName = "BankCertificate.txt";
 
-
+        /**********************************************************************************
+         * Certificate Functions
+         */ 
         public static Certificate loadCertificate(string fileName)
         {
             Certificate cert = null;
@@ -44,6 +46,19 @@ namespace NetSecSET.Model
             tw.Close();
         }
 
+        public static string loadCertificateText(string fileName)
+        {
+            return File.ReadAllText(fileName);
+        }
+
+        public static void saveCertificateText(string fileName, string msg)
+        {
+            File.WriteAllText(fileName, msg);
+        }
+
+        /**********************************************************************************
+         * OI Functions
+         */
         public static OrderInfo loadOI(string fileName)
         {
             OrderInfo OI = null;
@@ -69,6 +84,9 @@ namespace NetSecSET.Model
             tw.Close();
         }
 
+        /**********************************************************************************
+         * PI Functions
+         */
         public static PaymentInfo loadPI(string fileName)
         {
             PaymentInfo PI = null;
@@ -94,6 +112,9 @@ namespace NetSecSET.Model
             tw.Close();
         }
 
+        /**********************************************************************************
+         * Logging Functions
+         */
         public static void Log(string tag, string msg)
         {
             string s = "";
@@ -109,11 +130,21 @@ namespace NetSecSET.Model
             sSource = "NetSecSET";
             sLog = "Application";
 
-            if (!EventLog.SourceExists(sSource))
-                EventLog.CreateEventSource(sSource, sLog);
+            try
+            {
 
-            // Write an informational entry to the event log.    
-            EventLog.WriteEntry(sSource, s);
+                if (!EventLog.SourceExists(sSource))
+                    EventLog.CreateEventSource(sSource, sLog);
+
+                // Write an informational entry to the event log.    
+                EventLog.WriteEntry(sSource, s);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            
         }
 
         

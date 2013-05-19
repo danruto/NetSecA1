@@ -79,7 +79,7 @@
             this.qValue.Name = "qValue";
             this.qValue.Size = new System.Drawing.Size(100, 20);
             this.qValue.TabIndex = 3;
-            this.qValue.Text = "7";
+            this.qValue.Text = "13";
             // 
             // label1
             // 
@@ -148,7 +148,7 @@
             // 
             this.panel1.Controls.Add(this.logBox);
             this.panel1.Location = new System.Drawing.Point(169, 28);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(258, 223);
             this.panel1.TabIndex = 13;
@@ -156,7 +156,7 @@
             // logBox
             // 
             this.logBox.Location = new System.Drawing.Point(0, -1);
-            this.logBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logBox.Margin = new System.Windows.Forms.Padding(2);
             this.logBox.Multiline = true;
             this.logBox.Name = "logBox";
             this.logBox.ReadOnly = true;

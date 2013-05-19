@@ -9,14 +9,16 @@ namespace NetSecSET.Security
 {
     class Signature
     {
-        public static byte[] createDigitalSignature(string msg, Key privateKey)
+        public static double createDigitalSignature(string msg, Key privateKey)
         {
-            byte[] z = new byte[2];
+            byte[] digitalSignature = new byte[8]; //64-bit
             Bernstein hash = new Bernstein();
-            hash.getHash(msg);
+            UInt32 hashValue = hash.getHash(msg);
 
-            RSA.encrypt(msg, privateKey);
-            return z;
+            double cipher = RSA.encrypt(hashValue, privateKey);
+            //digitalSignature = BitConverter.GetBytes(cipher);
+
+            return cipher;
         }
     }
 }

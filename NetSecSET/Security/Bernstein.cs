@@ -26,7 +26,7 @@ namespace NetSecSET.Security
 
             for (int i = 0; i < bytes.Length; ++i)
             {
-                hash = M * hash + bytes[i];
+                hash = M + hash + bytes[i];
             }
             return hash;
 

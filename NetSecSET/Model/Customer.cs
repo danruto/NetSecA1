@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetSecSET.Security;
+using NetSecSET.Model;
 
 namespace NetSecSET.Model
 {
@@ -22,12 +23,12 @@ namespace NetSecSET.Model
         public void setup(Key publicKey, Key privateKey)
         {
             m_Hash = new Bernstein();
-            createCertificate();
+            createCertificate(publicKey, privateKey);
         }
 
-        public void createCertificate()
+        public void createCertificate(Key publicKey, Key privateKey)
         {
-            //m_Certificate = new Certificate();
+            m_Certificate = new Certificate(Certificate.t_CertificateType.CustomerCertificate, publicKey, privateKey);
         }
 
         public double createDualSignature(Key publicKey, Key privateKey)
