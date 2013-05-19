@@ -10,7 +10,7 @@ namespace NetSecSET.Model
     class PaymentInfo
     {
         public static string m_TAG = "PaymentInfo";
-        public static string m_PIFileName = "OI.txt";
+        public static string m_PIFileName = "PI.txt";
 
 
         public static string readPI()
@@ -18,9 +18,12 @@ namespace NetSecSET.Model
             return File.ReadAllText(m_PIFileName);
         }
 
-        public static void writePI(string msg)
+        public void writePI(int cardnumber, int cvvnum, double payment)
         {
-            File.WriteAllText(m_PIFileName, msg);
+            string content = "Credit Card Number: " + cardnumber ;
+            content += "\n CVV Number: " + cvvnum;
+            content += "\n Payment Amount: " + payment;
+            File.WriteAllText(m_PIFileName, content);
         }
 
     }
