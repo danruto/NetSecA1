@@ -15,14 +15,18 @@ namespace NetSecSET
 {
     public partial class Main : Form
     {
-        Key publicKey = new Key();
-        Key privateKey = new Key();
+        private Key m_publicKey = new Key();
+        private Key m_privateKey = new Key();
 
         public Main()
         {
             InitializeComponent();
+
+
+            // Add a scrollbar to the logViewer
             logBox.ScrollBars = ScrollBars.Vertical;
 
+            // Logging thread
             Thread t = new Thread(new ThreadStart(showLog));
             t.Start();
         }
@@ -58,26 +62,24 @@ namespace NetSecSET
             createKeys(p, q, e, d);
             displayKeys();
 
-            Customer cust = new Customer();
-            cust.setup(publicKey, privateKey);
+            Customer cust = new Customer(m_publicKey, m_privateKey);
 
             Merchant merch = new Merchant();
             Bank bank = new Bank();
-            Certificate cert = new Certificate();
         }
 
         private void createKeys(int p, int q, int e, int d)
         {
-            publicKey.k = e;
-            privateKey.k = d;
-            publicKey.n = p * q;
-            privateKey.n = p * q;
+            m_publicKey.k = e;
+            m_privateKey.k = d;
+            m_publicKey.n = p * q;
+            m_privateKey.n = p * q;
         }
 
         private void displayKeys()
         {
-            enTextBox.Text = "(" + publicKey.k + "," + " " + publicKey.n + ")";
-            dnTextBox.Text = "(" + privateKey.k + "," + " " + privateKey.n + ")";
+            enTextBox.Text = "(" + m_publicKey.k + "," + " " + m_publicKey.n + ")";
+            dnTextBox.Text = "(" + m_privateKey.k + "," + " " + m_privateKey.n + ")";
         }
 
         private void showLog()

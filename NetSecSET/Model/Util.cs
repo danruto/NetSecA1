@@ -14,7 +14,10 @@ namespace NetSecSET.Model
         public static string m_TAG = "Util";
         public static string m_OIFileName = "OI.txt";
         public static string m_PIFileName = "PI.txt";
-        public static string m_CertFileName = "Certificate.txt";
+        public static string m_CustCertFileName = "CustomerCertificate.txt";
+        public static string m_MerchantCertFileName = "MerchantCertificate.txt";
+        public static string m_BanktCertFileName = "BankCertificate.txt";
+
 
         public static Certificate loadCertificate(string fileName)
         {

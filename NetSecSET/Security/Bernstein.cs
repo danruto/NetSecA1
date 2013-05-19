@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace NetSecSET.Security
 {
-    class MD5
+    class Bernstein
     {
         //md5 specifications http://tools.ietf.org/html/rfc1321
         
         //bernstein constants
-        const uint INITIAL_VALUE = 5381;
-        const uint M = 33;
+        const UInt32 INITIAL_VALUE = 5381;
+        const UInt32 M = 33;
 
         //bernstein hash algorithm
         //uses additions instead of XOR
-        public string getHash(string input)
+        public UInt32 getHash(string input)
         {
-            uint hash = INITIAL_VALUE;
+            UInt32 hash = INITIAL_VALUE;
             byte[] bytes = getBytes(input);
 
             for (int i = 0; i < bytes.Length; ++i)

@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetSecSET.Security;
 
 namespace NetSecSET.Model
 {
     class Customer
     {
         private string m_TAG = "Customer";
+        private Bernstein m_Hash;
+        private Certificate m_Certificate;
+
+        public Customer(Key publicKey, Key privateKey)        
+        {
+            setup(publicKey, privateKey);
+            createDualSignature(publicKey, privateKey);
+        }
 
         public void setup(Key publicKey, Key privateKey)
         {
-            createDualSignature(publicKey, privateKey);
+            m_Hash = new Bernstein();
+            createCertificate();
+        }
+
+        public void createCertificate()
+        {
+            //m_Certificate = new Certificate();
         }
 
         public double createDualSignature(Key publicKey, Key privateKey)

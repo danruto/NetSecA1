@@ -58,11 +58,12 @@
     <Compile Include="Model\Merchant.cs" />
     <Compile Include="Model\OrderInfo.cs" />
     <Compile Include="Model\PaymentInfo.cs" />
-    <Compile Include="Security\MD5.cs" />
+    <Compile Include="Security\Bernstein.cs" />
     <Compile Include="Security\RSA.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Signature.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

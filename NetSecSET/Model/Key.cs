@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetSecSET.Model
 {
-    class Key
+    public class Key
     {
         public int k { get; set; }
         public int n { get; set; }
