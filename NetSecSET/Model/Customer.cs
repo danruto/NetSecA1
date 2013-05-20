@@ -47,7 +47,7 @@ namespace NetSecSET.Model
 
             UInt32 POMD = createPOMD(combinedHash);
 
-            double DS = RSA.encrypt(POMD, privateKey.k, privateKey.n);
+            double DS = RSASec.encrypt(POMD, privateKey.k, privateKey.n);
 
             return DS;
         }

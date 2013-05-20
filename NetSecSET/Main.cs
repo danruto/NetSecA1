@@ -44,8 +44,21 @@ namespace NetSecSET
             int e = Convert.ToInt32(eValue.Text.ToString());
 
             // 
-            int d = 0;
+            int d = createDKey(p, q, e);
+
+            saveKeys(p, q, e, d);
+            displayKeys();
+
+            Customer cust = new Customer(m_publicKey, m_privateKey);
+
+            Merchant merch = new Merchant();
+            Bank bank = new Bank();
+        }
+
+        private int createDKey(int p, int q, int e)
+        {
             double dTemp;
+            int d = 0;
 
             for (int k = 1; k < 9; k++)
             {
@@ -55,20 +68,14 @@ namespace NetSecSET
                 if (dTemp % 1 == 0)
                 {
                     d = Convert.ToInt32(dTemp);
-                    break;
+                    return d;
                 }
             }
 
-            createKeys(p, q, e, d);
-            displayKeys();
-
-            Customer cust = new Customer(m_publicKey, m_privateKey);
-
-            Merchant merch = new Merchant();
-            Bank bank = new Bank();
+            return d;
         }
 
-        private void createKeys(int p, int q, int e, int d)
+        private void saveKeys(int p, int q, int e, int d)
         {
             m_publicKey.k = e;
             m_privateKey.k = d;

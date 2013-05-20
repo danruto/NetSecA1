@@ -7,7 +7,7 @@ using NetSecSET.Model;
 
 namespace NetSecSET.Model
 {
-    public static class RSA
+    public static class RSASec
     {
         private static string m_TAG = "RSA";
 
@@ -25,6 +25,7 @@ namespace NetSecSET.Model
             int n = privateKey.n;
             double value = Math.Pow(hash, privateKey.k);
             //double c = (Math.Pow(hash, privateKey.k) % privateKey.n);
+            // c = m^e mod n;
             double c = ((value % n) + n) % n;
 
             return c;
@@ -40,7 +41,10 @@ namespace NetSecSET.Model
         public static double decrypt(double digitalSignature, Key publicKey)
         {
             Util.Log(m_TAG, "decrypt(): digitalSignature");
-            double m = (Math.Pow(digitalSignature, publicKey.k) % publicKey.n);
+            //double m = (Math.Pow(digitalSignature, publicKey.k) % publicKey.n);
+            double value = Math.Pow(digitalSignature, publicKey.k);
+            int n = publicKey.n;
+            double m = ((value % n) + n) % n;
             return m;
         }
 

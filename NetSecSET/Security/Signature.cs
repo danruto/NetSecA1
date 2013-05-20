@@ -15,7 +15,7 @@ namespace NetSecSET.Security
             Bernstein hash = new Bernstein();
             UInt32 hashValue = hash.getHash(msg);
 
-            double cipher = RSA.encrypt(hashValue, privateKey);
+            double cipher = RSASec.encrypt(hashValue, privateKey);
             //digitalSignature = BitConverter.GetBytes(cipher);
 
             return cipher;

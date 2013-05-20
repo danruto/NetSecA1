@@ -59,7 +59,7 @@
     <Compile Include="Model\OrderInfo.cs" />
     <Compile Include="Model\PaymentInfo.cs" />
     <Compile Include="Security\Bernstein.cs" />
-    <Compile Include="Security\RSA.cs" />
+    <Compile Include="Security\RSASec.cs" />
     <Compile Include="Model\Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -68,7 +68,7 @@ namespace NetSecSET
         public void createCustomerCertificate(Key publicKey, Key privateKey)
         {
             double tmp = Signature.createDigitalSignature(m_CustomerCertificateName, privateKey);
-            double tmp2 = RSA.decrypt(tmp, publicKey);
+            double tmp2 = RSASec.decrypt(tmp, publicKey);
             Bernstein hash = new Bernstein();
             UInt32 hashValue = hash.getHash(m_CustomerCertificateName);
             //ASCIIEncoding enc = new ASCIIEncoding();
