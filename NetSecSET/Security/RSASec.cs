@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using NetSecSET.Model;
 
+using System.Security.Cryptography;
+
 namespace NetSecSET.Model
 {
     public static class RSASec
     {
         private static string m_TAG = "RSA";
+        private static RSACryptoServiceProvider RSAprovider = new RSACryptoServiceProvider();
+
+        public static RSACryptoServiceProvider getRSA()
+        {
+            return RSAprovider;
+        }
 
         public static double encrypt(string hash, Key privateKey)
         {

@@ -47,6 +47,11 @@ namespace NetSecSET.Security
             //byte[] hashData = md5hash.ComputeHash(Encoding.UTF8.GetBytes(input));
         }
 
+        public byte[] getBytes(UInt32 hash)
+        {
+            return getBytes(hash + "");
+        }
+
         public byte[] getBytes(string input)
         {
             byte[] bytes = new byte[input.Length * sizeof(char)];

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetSecSET.Model;
 using NetSecSET.Security;
+using System.Security.Cryptography;
 
 namespace NetSecSET
 {
@@ -22,6 +23,8 @@ namespace NetSecSET
         private string m_BankCertificateName = "Bank";
         private string m_MerchantCertificateName = "Merchant";
         private string m_CustomerCertificateName = "Customer";
+
+
 
         public Certificate(t_CertificateType ct, Key publicKey, Key privateKey)
         {
@@ -67,18 +70,23 @@ namespace NetSecSET
 
         public void createCustomerCertificate(Key publicKey, Key privateKey)
         {
-            double tmp = Signature.createDigitalSignature(m_CustomerCertificateName, privateKey);
-            double tmp2 = RSASec.decrypt(tmp, publicKey);
+            byte[] tmp = Signature.createDigitalSignature(m_CustomerCertificateName, RSASec.getRSA());
+            //double tmp2 = RSASec.decrypt(tmp, publicKey);
+            byte[] tmp2 = RSASec.getRSA().Decrypt(tmp, false);
             Bernstein hash = new Bernstein();
             UInt32 hashValue = hash.getHash(m_CustomerCertificateName);
-            //ASCIIEncoding enc = new ASCIIEncoding();
+            ASCIIEncoding enc = new ASCIIEncoding();
 
-            //string digitalSig = Encoding.UTF8.GetString(tmp, 0, tmp.Length);
+            //string digitalSig1 = RSASec.getRSA().GetString(tmp, 0, tmp.Length);
+            //string digitalSig2 = enc.GetString(tmp2, 0, tmp2.Length);
+
+            byte[] digitalSig1 = RSASec.getRSA().SignHash(BitConverter.GetBytes(hashValue), CryptoConfig.MapNameToOID("Bernstein"));
+            //byte[] digitalSig2 = 
             string content = "Name: " + "Customer Certificate" +
                              "\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
-                             "\nDigitalSignature: " + tmp +
+                             "\nDigitalSignature: " + digitalSig1 +
                              "\naHash: " + hashValue + 
-                             "\nDecDigitalSig: " + tmp2;
+                             "\nDecDigitalSig: " + "digitalSig2";
 
             Util.saveCertificateText(Util.m_CustCertFileName, content);
         }

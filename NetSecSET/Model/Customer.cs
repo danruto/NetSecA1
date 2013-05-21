@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NetSecSET.Security;
 using NetSecSET.Model;
 
+using System.Security.Cryptography;
+
 namespace NetSecSET.Model
 {
     class Customer
@@ -48,8 +50,11 @@ namespace NetSecSET.Model
             UInt32 POMD = createPOMD(combinedHash);
 
             double DS = RSASec.encrypt(POMD, privateKey.k, privateKey.n);
-
             return DS;
+            //RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+            //byte[] encryptedData = RSA.Encrypt(POMD, false);
+            //return encryptedData;
+            
         }
 
         public UInt16 createPIMDHash(PaymentInfo PI)
