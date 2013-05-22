@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SETGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETGui.Designer.cs">
+      <DependentUpon>SETGui.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs" />
     <Compile Include="Model\Bank.cs" />
     <Compile Include="Model\Certificate.cs" />
@@ -64,6 +70,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Signature.cs" />
+    <EmbeddedResource Include="SETGui.resx">
+      <DependentUpon>SETGui.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
