@@ -16,8 +16,8 @@ namespace NetSecSET
         public enum t_CertificateType
         {
             BankCertificate = 1,
-            MerchantCertificate,
-            CustomerCertificate
+            MerchantCertificate = 1,
+            CustomerCertificate = 1
         };
 
         private string m_BankCertificateName = "Bank";
