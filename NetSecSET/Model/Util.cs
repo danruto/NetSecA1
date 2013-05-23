@@ -47,24 +47,25 @@ namespace NetSecSET.Model
             XmlSerializer s = new XmlSerializer(typeof(Certificate));
             TextWriter tw = new StreamWriter(@fileName);
             s.Serialize(tw, cert);
-            Log(m_TAG, "saving Ceritifcate");
+            Log(m_TAG, "saving Certificate");
             tw.Close();
         }
 
         public static string loadCertificateText(string fileName)
         {
-            return File.ReadAllText(fileName);
+            return File.ReadAllText(@fileName);
         }
 
         public static void saveCertificateText(string fileName, string msg)
         {
-            File.WriteAllText(fileName, msg);
+            Log(m_TAG, "saving certificate");
+            File.WriteAllText(@fileName, msg);
         }
 
         /**********************************************************************************
          * OI Functions
          */
-        public static OrderInfo loadOI(string fileName)
+        /*public static OrderInfo loadOI(string fileName)
         {
             OrderInfo OI = null;
 
@@ -78,7 +79,7 @@ namespace NetSecSET.Model
             }
 
             return OI;
-        }
+        }*/
 
         public static void saveOI(string fileName, OrderInfo OI)
         {
@@ -89,10 +90,19 @@ namespace NetSecSET.Model
             tw.Close();
         }
 
+        public static string loadOI(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllText(@fileName);
+            }
+            return "";
+        }
+
         /**********************************************************************************
          * PI Functions
          */
-        public static PaymentInfo loadPI(string fileName)
+        /*public static PaymentInfo loadPI(string fileName)
         {
             PaymentInfo PI = null;
 
@@ -106,7 +116,7 @@ namespace NetSecSET.Model
             }
 
             return PI;
-        }
+        }*/
 
         public static void savePI(string fileName, PaymentInfo PI)
         {
@@ -117,12 +127,29 @@ namespace NetSecSET.Model
             tw.Close();
         }
 
+        public static string loadPI(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllText(@fileName);
+            }
+            return "";
+        }
+
         /**********************************************************************************
          * Signature Write
          */
         public static void WriteDualSignature(UInt32 dualSignature)
         {
             File.WriteAllText(@m_DualSignatureFileName, dualSignature + "");
+        
+        }
+
+        public static UInt32 loadDualSignature()
+        {
+            if (File.Exists(@m_DualSignatureFileName))
+                return Convert.ToUInt32(File.ReadAllText(@m_DualSignatureFileName));
+            return 0;
         }
 
 
@@ -217,7 +244,9 @@ namespace NetSecSET.Model
             
         }
 
-        
+        /**********************************************************************************
+         * Public Key Files
+         */
 
     }
 }

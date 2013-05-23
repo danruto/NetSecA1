@@ -11,6 +11,7 @@ namespace NetSecSET.Security
 {
     class Signature
     {
+        private const string m_TAG = "Signature";
         public static byte[] createDigitalSignature(string msg, RSACryptoServiceProvider RSA)
         {
             byte[] digitalSignature = new byte[8]; //64-bit
@@ -29,6 +30,7 @@ namespace NetSecSET.Security
         public static UInt32 createDigitalSignature(UInt32 msg, RSACryptoServiceProvider RSAprovider)
         {
             Bernstein hash = new Bernstein();
+            Util.Log(m_TAG, "creating digital signature");
             return RSASec.encrypt(msg, RSAprovider);
         }
     }

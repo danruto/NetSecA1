@@ -31,6 +31,13 @@ namespace NetSecSET.Model
             return BitConverter.ToUInt32(encryptedData, 0);
         }
 
+        public static UInt32 decrypt(UInt32 msg, RSACryptoServiceProvider RSAProvider)
+        {
+            byte[] toDec = BitConverter.GetBytes(msg);
+            byte[] decryptedData = RSAProvider.Decrypt(toDec, false);
+            return BitConverter.ToUInt32(decryptedData, 0);
+        }
+
         public static double encrypt(string hash, Key privateKey)
         {
             Util.Log(m_TAG, "encrypt(): hash");

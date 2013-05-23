@@ -20,7 +20,7 @@ namespace NetSecSET.Model
             content += "\n Customer Name: " + custname;
             content += "\n Customer address: " + custaddress;
             content += "\n Customer Contact: " + custnumber;
-            File.WriteAllText(m_OIFileName, content);
+            File.WriteAllText(@m_OIFileName, content);
         }
 
         public string getContent()

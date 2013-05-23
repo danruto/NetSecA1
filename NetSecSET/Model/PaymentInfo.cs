@@ -23,7 +23,7 @@ namespace NetSecSET.Model
             string content = "Credit Card Number: " + cardnumber;
             content += "\n CVV Number: " + cvvnum;
             content += "\n Payment Amount: " + payment;
-            File.WriteAllText(m_PIFileName, content);
+            File.WriteAllText(@m_PIFileName, content);
         }
 
         public string getContent()

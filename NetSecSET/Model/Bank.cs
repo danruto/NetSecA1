@@ -15,6 +15,7 @@ namespace NetSecSET.Model
         private string m_TAG = "Bank";
         private Bernstein hash = new Bernstein();
         private RSACryptoServiceProvider RSAProvider;
+        private Certificate m_Certificate;
         private string decryptedMsg;
         public Key publicKey { get; set; }
         public Key privateKey { get; set; }
@@ -25,10 +26,17 @@ namespace NetSecSET.Model
             this.publicKey = publicKey;
             this.privateKey = privateKey;
             RSAProvider = new RSACryptoServiceProvider();
+            createCertificate();
         }
 
-        public void decrypt(int DS, PaymentInfo PI, int OIMD)
+        private void createCertificate()
         {
+            m_Certificate = new Certificate(Certificate.t_CertificateType.BankCertificate, RSAProvider);
+        }
+
+        public void decrypt()
+        {
+            //int DS, PaymentInfo PI, int OIMD
         }
 
         public string hashOI(string PI)

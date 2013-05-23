@@ -14,7 +14,7 @@ namespace NetSecSET.Security
         //md5 specifications http://tools.ietf.org/html/rfc1321
         
         //bernstein constants
-        const UInt32 INITIAL_VALUE = 1;
+        const UInt32 INITIAL_VALUE = 5875;
         const UInt32 M = 33;
 
         //bernstein hash algorithm
@@ -26,7 +26,7 @@ namespace NetSecSET.Security
 
             for (int i = 0; i < bytes.Length; ++i)
             {
-                hash = M + bytes[i];
+                hash += M + bytes[i];
             }
             return hash;
 

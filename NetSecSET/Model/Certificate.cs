@@ -28,6 +28,7 @@ namespace NetSecSET
 
         public Certificate(t_CertificateType ct, RSACryptoServiceProvider RSAProvider)
         {
+
             switch (ct)
             {
                 case t_CertificateType.BankCertificate:
@@ -51,6 +52,7 @@ namespace NetSecSET
             UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
             string content = "Name: " + "Customer Certificate" +
                              //"\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
+                             "\nPublic Key:\n" + RSAProvider.ToXmlString(false) +
                              "\nDigitalSignature: " + digitalSignature +
                              "\naHash: " + hashValue;
 
@@ -64,6 +66,7 @@ namespace NetSecSET
             UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
             string content = "Name: " + "Customer Certificate" +
                              //"\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
+                             "\nPublic Key:\n" + RSAProvider.ToXmlString(false) +
                              "\nDigitalSignature: " + digitalSignature +
                              "\naHash: " + hashValue;
 
@@ -89,7 +92,8 @@ namespace NetSecSET
             UInt32 hashValue = hash.getHash(m_CustomerCertificateName);
             UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
             string content = "Name: " + "Customer Certificate" +
-                             //"\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
+                //"\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
+                             "\nPublic Key:\n" + RSAProvider.ToXmlString(false) +
                              "\nDigitalSignature: " + digitalSignature +
                              "\naHash: " + hashValue;
 

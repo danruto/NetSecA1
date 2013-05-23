@@ -56,12 +56,6 @@ namespace NetSecSET
             return d;
         }
 
-        private void update()
-        {
-            showLog();
-            
-        }
-
         private void showLog()
         {
             /*EventLog eventLog = new EventLog();
@@ -87,23 +81,9 @@ namespace NetSecSET
             while (true)
             {
                 logBox.Invoke((MethodInvoker)(() => logBox.Text = Util.getLog()));
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
-        }
-
-        private void showKeyPairs()
-        {
-            cenTextBox.Text = "(" + m_customer.publicKey.k + "," + m_customer.publicKey.n + ")";
-            cdnTextBox.Text = "(" + m_customer.privateKey.k + "," + m_customer.privateKey.n + ")";
-
-            menTextBox.Text = "(" + m_merchant.publicKey.k + "," + m_merchant.publicKey.n + ")";
-            mdnTextBox.Text = "(" + m_merchant.privateKey.k + "," + m_merchant.privateKey.n + ")";
-
-            benTextBox.Text = "(" + m_bank.publicKey.k + "," + m_bank.publicKey.n + ")";
-            bdnTextBox.Text = "(" + m_bank.privateKey.k + "," + m_bank.privateKey.n + ")";
-        }
-
-        
+        }       
 
         private void startBut_Click(object sender, EventArgs e)
         {
@@ -111,6 +91,37 @@ namespace NetSecSET
             createMerchKeyPair();
             createBankKeyPair();
             showKeyPairs();
+        }
+
+        private void SETGui_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            logThread.Abort();
+        }
+
+        private void custMakePaymentBut_Click(object sender, EventArgs e)
+        {
+            /*
+            custCostLbl.Text;
+            custCCTextBox;
+            custCVVTextBox;
+            */
+
+            OrderInfo OI = new OrderInfo();
+            OI.writeOI(Convert.ToInt32(custProductNoLbl.Text), custProductNameLbl.Text, DateTime.Now, custNameTextBox.Text, custAddressTextBox.Text, Convert.ToInt32(custContactNoTextBox.Text));
+
+            PaymentInfo PI = new PaymentInfo();
+            PI.writePI(Convert.ToInt32(custCCTextBox.Text), Convert.ToInt32(custCVVTextBox.Text), Convert.ToDouble(custCostLbl.Text));
+
+            UInt32 dualSignature = m_customer.createDualSignature();
+            Util.WriteDualSignature(dualSignature);
+
+            startDecryption();
+        }
+
+        private void startDecryption()
+        {
+            m_merchant.decrypt();
+            //m_bank.decrypt();
         }
 
         private void createCustKeyPair()
@@ -125,7 +136,7 @@ namespace NetSecSET
 
             // 
             int d = createDKey(p, q, e);
-            int n = p*q;
+            int n = p * q;
 
             publicKey.k = e;
             publicKey.n = n;
@@ -177,35 +188,16 @@ namespace NetSecSET
             m_bank = new Bank(publicKey, privateKey);
         }
 
-        private void SETGui_FormClosed(object sender, FormClosedEventArgs e)
+        private void showKeyPairs()
         {
-            logThread.Abort();
-        }
+            cenTextBox.Text = "(" + m_customer.publicKey.k + "," + m_customer.publicKey.n + ")";
+            cdnTextBox.Text = "(" + m_customer.privateKey.k + "," + m_customer.privateKey.n + ")";
 
-        private void custMakePaymentBut_Click(object sender, EventArgs e)
-        {
-            /*
-            custCostLbl.Text;
-            custCCTextBox;
-            custCVVTextBox;
-            */
+            menTextBox.Text = "(" + m_merchant.publicKey.k + "," + m_merchant.publicKey.n + ")";
+            mdnTextBox.Text = "(" + m_merchant.privateKey.k + "," + m_merchant.privateKey.n + ")";
 
-            OrderInfo OI = new OrderInfo();
-            OI.writeOI(Convert.ToInt32(custProductNoLbl.Text), custProductNameLbl.Text, DateTime.Now, custNameTextBox.Text, custAddressTextBox.Text, Convert.ToInt32(custContactNoTextBox.Text));
-
-            PaymentInfo PI = new PaymentInfo();
-            PI.writePI(Convert.ToInt32(custCCTextBox.Text), Convert.ToInt32(custCVVTextBox.Text), Convert.ToDouble(custCostLbl.Text));
-
-            UInt32 dualSignature = m_customer.createDualSignature();
-            Util.WriteDualSignature(dualSignature);
-
-            startDecryption();
-        }
-
-        private void startDecryption()
-        {
-            //m_merchant.decrypt();
-            //m_bank.decrypt();
+            benTextBox.Text = "(" + m_bank.publicKey.k + "," + m_bank.publicKey.n + ")";
+            bdnTextBox.Text = "(" + m_bank.privateKey.k + "," + m_bank.privateKey.n + ")";
         }
     }
 }

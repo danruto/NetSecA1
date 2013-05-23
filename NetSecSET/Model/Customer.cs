@@ -44,8 +44,8 @@ namespace NetSecSET.Model
             Util.Log(m_TAG, "creating dual signature...");
 
             // get both the OI and PI from file
-            OrderInfo OI = Util.loadOI(Util.m_OIFileName);
-            PaymentInfo PI = Util.loadPI(Util.m_PIFileName);
+            string OI = Util.loadOI(Util.m_OIFileName);
+            string PI = Util.loadPI(Util.m_PIFileName);
 
             // create the hashs for both files
             UInt32 PIMD = createPIMDHash(PI);
@@ -64,16 +64,16 @@ namespace NetSecSET.Model
             
         }
 
-        public UInt32 createPIMDHash(PaymentInfo PI)
+        public UInt32 createPIMDHash(string PI)
         {
             Util.Log(m_TAG, "creating PIMD hash");
-            return m_Hash.getHash(PI.getContent());
+            return m_Hash.getHash(PI);
         }
 
-        public UInt32 createOIMDHash(OrderInfo OI)
+        public UInt32 createOIMDHash(string OI)
         {
             Util.Log(m_TAG, "creating OIMD hash");
-            return m_Hash.getHash(OI.getContent());
+            return m_Hash.getHash(OI);
         }
 
         public UInt32 createPOMD(UInt32 combinedHash)
@@ -81,6 +81,7 @@ namespace NetSecSET.Model
             Util.Log(m_TAG, "creating POMD");
             return m_Hash.getHash(combinedHash + "");
         }
+
 
         
     }
