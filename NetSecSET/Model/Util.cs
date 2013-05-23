@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace NetSecSET.Model
 {
@@ -14,9 +16,12 @@ namespace NetSecSET.Model
         public static string m_TAG = "Util";
         public static string m_OIFileName = "OI.txt";
         public static string m_PIFileName = "PI.txt";
+        public static string m_DualSignatureFileName = "DualSignature.txt";
         public static string m_CustCertFileName = "CustomerCertificate.txt";
         public static string m_MerchantCertFileName = "MerchantCertificate.txt";
         public static string m_BankCertFileName = "BankCertificate.txt";
+        public static string m_LogFileName = "NetsecLog.log";
+        private static Semaphore logSem = new Semaphore(1, 1);
 
         /**********************************************************************************
          * Certificate Functions
@@ -113,10 +118,20 @@ namespace NetSecSET.Model
         }
 
         /**********************************************************************************
+         * Signature Write
+         */
+        public static void WriteDualSignature(UInt32 dualSignature)
+        {
+            File.WriteAllText(@m_DualSignatureFileName, dualSignature + "");
+        }
+
+
+        /**********************************************************************************
          * Logging Functions
          */
-        public static void Log(string tag, string msg)
+        public static void Log2(string tag, string msg)
         {
+            // Run eventcreate /ID 1 /L APPLICATION /T INFORMATION /SO NetSecSET /D “Registering” as administrator so the log will work
             string s = "";
             s += "\r\nLog Entry : ";
             s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
@@ -141,8 +156,63 @@ namespace NetSecSET.Model
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Debug.WriteLine(e.ToString());
+            }            
+        }
+
+        public static void Log(string tag, string msg)
+        {
+            string s = "";
+            s += "\r\nLog Entry : ";
+            s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
+            s += "\n Tag: " + tag;
+            s += "\n Message :" + msg;
+            s += "\n-------------------------------";
+
+            lock (logSem)
+            {
+                File.AppendAllText(@m_LogFileName, s);
             }
+        }
+
+        public static string getLog()
+        {
+            lock (logSem)
+            {
+                if (File.Exists(@m_LogFileName))
+                {
+                    return File.ReadAllText(@m_LogFileName);
+                }
+                return "";
+            }
+        }
+
+        public static void ClearLog()
+        {
+            lock (logSem)
+            {
+                if (File.Exists(@m_LogFileName))
+                    File.WriteAllText(@m_LogFileName, "");
+                if (File.Exists(@m_OIFileName))
+                    File.WriteAllText(@m_OIFileName, "");
+                if (File.Exists(@m_PIFileName))
+                    File.WriteAllText(@m_PIFileName, "");
+            }
+        }
+
+        public static void ClearLog2()
+        {
+            string sSource;
+            string sLog;
+
+            sSource = "NetSecSET";
+            sLog = "Application";
+            try
+            {
+                if (EventLog.SourceExists(sSource))
+                    EventLog.DeleteEventSource(sSource);
+            }
+            catch (Exception ex) { }
 
             
         }

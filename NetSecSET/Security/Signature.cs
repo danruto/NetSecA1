@@ -25,5 +25,11 @@ namespace NetSecSET.Security
 
             return encryptedData;
         }
+
+        public static UInt32 createDigitalSignature(UInt32 msg, RSACryptoServiceProvider RSAprovider)
+        {
+            Bernstein hash = new Bernstein();
+            return RSASec.encrypt(msg, RSAprovider);
+        }
     }
 }

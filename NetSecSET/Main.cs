@@ -48,11 +48,6 @@ namespace NetSecSET
 
             saveKeys(p, q, e, d);
             displayKeys();
-
-            Customer cust = new Customer(m_publicKey, m_privateKey);
-
-            Merchant merch = new Merchant();
-            Bank bank = new Bank();
         }
 
         private int createDKey(int p, int q, int e)

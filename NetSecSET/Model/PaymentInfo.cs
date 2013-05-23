@@ -20,10 +20,17 @@ namespace NetSecSET.Model
 
         public void writePI(int cardnumber, int cvvnum, double payment)
         {
-            string content = "Credit Card Number: " + cardnumber ;
+            string content = "Credit Card Number: " + cardnumber;
             content += "\n CVV Number: " + cvvnum;
             content += "\n Payment Amount: " + payment;
             File.WriteAllText(m_PIFileName, content);
+        }
+
+        public string getContent()
+        {
+            if (File.Exists(@m_PIFileName))
+                return File.ReadAllText(@m_PIFileName);
+            return "";
         }
 
     }

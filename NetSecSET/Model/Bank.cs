@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetSecSET.Model;
 using NetSecSET.Security;
+using System.Security.Cryptography;
 
 namespace NetSecSET.Model
 {
@@ -13,7 +14,18 @@ namespace NetSecSET.Model
 
         private string m_TAG = "Bank";
         private Bernstein hash = new Bernstein();
+        private RSACryptoServiceProvider RSAProvider;
         private string decryptedMsg;
+        public Key publicKey { get; set; }
+        public Key privateKey { get; set; }
+
+
+        public Bank(Key publicKey, Key privateKey)
+        {
+            this.publicKey = publicKey;
+            this.privateKey = privateKey;
+            RSAProvider = new RSACryptoServiceProvider();
+        }
 
         public void decrypt(int DS, PaymentInfo PI, int OIMD)
         {
@@ -21,7 +33,6 @@ namespace NetSecSET.Model
 
         public string hashOI(string PI)
         {
-
             return Convert.ToString(hash.getHash(PI));
         }
 
@@ -37,9 +48,7 @@ namespace NetSecSET.Model
 
         public bool verifyDS(string PI, int OIMD)
         {
-            if (decryptedMsg == hashPI_OIMD(PI, OIMD))
-                return true;
-            else return false;
+            return decryptedMsg == hashPI_OIMD(PI, OIMD);
         }
 
     }

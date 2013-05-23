@@ -12,11 +12,23 @@ namespace NetSecSET.Model
     public static class RSASec
     {
         private static string m_TAG = "RSA";
-        private static RSACryptoServiceProvider RSAprovider = new RSACryptoServiceProvider();
+        //private static RSACryptoServiceProvider RSAprovider = new RSACryptoServiceProvider();
 
-        public static RSACryptoServiceProvider getRSA()
+        /*public static RSACryptoServiceProvider getRSA()
         {
             return RSAprovider;
+        }*/
+
+        public static UInt32 encrypt (string msg)
+        {
+            return 0;
+        }
+
+        public static UInt32 encrypt(UInt32 msg, RSACryptoServiceProvider RSAprovider)
+        {
+            byte[] toEnc = BitConverter.GetBytes(msg);
+            byte[] encryptedData = RSAprovider.Encrypt(toEnc, false);
+            return BitConverter.ToUInt32(encryptedData, 0);
         }
 
         public static double encrypt(string hash, Key privateKey)

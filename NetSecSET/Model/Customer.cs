@@ -15,25 +15,31 @@ namespace NetSecSET.Model
         private string m_TAG = "Customer";
         private Bernstein m_Hash;
         private Certificate m_Certificate;
+        private RSACryptoServiceProvider RSAProvider;
+        public Key publicKey { get; set; }
+        public Key privateKey { get; set; }
 
         public Customer(Key publicKey, Key privateKey)        
         {
             setup(publicKey, privateKey);
-            createDualSignature(publicKey, privateKey);
         }
 
         public void setup(Key publicKey, Key privateKey)
         {
             m_Hash = new Bernstein();
-            createCertificate(publicKey, privateKey);
+            RSAProvider = new RSACryptoServiceProvider();
+            this.publicKey = publicKey;
+            this.privateKey = privateKey;
+
+            createCertificate();
         }
 
-        public void createCertificate(Key publicKey, Key privateKey)
+        public void createCertificate()
         {
-            m_Certificate = new Certificate(Certificate.t_CertificateType.CustomerCertificate, publicKey, privateKey);
+            m_Certificate = new Certificate(Certificate.t_CertificateType.CustomerCertificate, RSAProvider);
         }
 
-        public double createDualSignature(Key publicKey, Key privateKey)
+        public UInt32 createDualSignature()
         {
             Util.Log(m_TAG, "creating dual signature...");
 
@@ -42,14 +48,15 @@ namespace NetSecSET.Model
             PaymentInfo PI = Util.loadPI(Util.m_PIFileName);
 
             // create the hashs for both files
-            UInt16 PIMD = createPIMDHash(PI);
-            UInt16 OIMD = createOIMDHash(OI);
+            UInt32 PIMD = createPIMDHash(PI);
+            UInt32 OIMD = createOIMDHash(OI);
 
-            UInt32 combinedHash = (UInt32) PIMD + OIMD;
+            UInt32 combinedHash = PIMD + OIMD;
 
             UInt32 POMD = createPOMD(combinedHash);
 
-            double DS = RSASec.encrypt(POMD, privateKey.k, privateKey.n);
+            UInt32 DS = RSASec.encrypt(POMD, RSAProvider);
+
             return DS;
             //RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
             //byte[] encryptedData = RSA.Encrypt(POMD, false);
@@ -57,22 +64,22 @@ namespace NetSecSET.Model
             
         }
 
-        public UInt16 createPIMDHash(PaymentInfo PI)
+        public UInt32 createPIMDHash(PaymentInfo PI)
         {
             Util.Log(m_TAG, "creating PIMD hash");
-            return 2;
+            return m_Hash.getHash(PI.getContent());
         }
 
-        public UInt16 createOIMDHash(OrderInfo OI)
+        public UInt32 createOIMDHash(OrderInfo OI)
         {
             Util.Log(m_TAG, "creating OIMD hash");
-            return 2;
+            return m_Hash.getHash(OI.getContent());
         }
 
-        public UInt32 createPOMD(UInt32 POMD)
+        public UInt32 createPOMD(UInt32 combinedHash)
         {
             Util.Log(m_TAG, "creating POMD");
-            return 2;
+            return m_Hash.getHash(combinedHash + "");
         }
 
         

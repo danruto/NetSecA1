@@ -31,36 +31,57 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SETGui));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCustomer = new System.Windows.Forms.TabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.ceTextBox = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.cqTextBox = new System.Windows.Forms.TextBox();
+            this.cpTextBox = new System.Windows.Forms.TextBox();
+            this.custCVVTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cdnTextBox = new System.Windows.Forms.TextBox();
+            this.custCCTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.cenTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.custCostLbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.custContactNoTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.custAddressTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.custNameTextBox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.custProductNoLbl = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.custProductNameLbl = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.custMakePaymentBut = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tabMerchant = new System.Windows.Forms.TabPage();
+            this.merchContactTextBox = new System.Windows.Forms.TextBox();
+            this.merchAddressTextBox = new System.Windows.Forms.TextBox();
+            this.merchNameTextBox = new System.Windows.Forms.TextBox();
+            this.merchProductNoLbl = new System.Windows.Forms.Label();
+            this.merchProductNameLbl = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.meTextBox = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.mqTextBox = new System.Windows.Forms.TextBox();
+            this.mpTextBox = new System.Windows.Forms.TextBox();
+            this.mdnTextBox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.menTextBox = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.lblcvv = new System.Windows.Forms.Label();
             this.lblcc = new System.Windows.Forms.Label();
             this.lblcontactnum = new System.Windows.Forms.Label();
             this.lbladdress = new System.Windows.Forms.Label();
             this.lblname = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.lblcost = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -69,9 +90,22 @@
             this.lblproduct = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.merchGetInfoBut = new System.Windows.Forms.Button();
             this.tabBank = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bankCVVTextBox = new System.Windows.Forms.TextBox();
+            this.bankCCTextBox = new System.Windows.Forms.TextBox();
+            this.bankCostLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bdnTextBox = new System.Windows.Forms.TextBox();
+            this.beTextBox = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.benTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.bqTextBox = new System.Windows.Forms.TextBox();
+            this.bankGetInfoBut = new System.Windows.Forms.Button();
+            this.bpTextBox = new System.Windows.Forms.TextBox();
             this.lblcvvbank = new System.Windows.Forms.Label();
             this.lblccbank = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -81,43 +115,13 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.eValue = new System.Windows.Forms.TextBox();
-            this.dnTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.enTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.qValue = new System.Windows.Forms.TextBox();
-            this.pValue = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.simMMBut = new System.Windows.Forms.Button();
             this.startBut = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.logBox = new System.Windows.Forms.TextBox();
             this.lbllog = new System.Windows.Forms.Label();
             this.lblecrypt = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabCustomer.SuspendLayout();
             this.tabMerchant.SuspendLayout();
@@ -142,33 +146,33 @@
             // 
             this.tabCustomer.BackColor = System.Drawing.Color.DarkGray;
             this.tabCustomer.Controls.Add(this.label41);
-            this.tabCustomer.Controls.Add(this.textBox13);
+            this.tabCustomer.Controls.Add(this.ceTextBox);
             this.tabCustomer.Controls.Add(this.label42);
             this.tabCustomer.Controls.Add(this.label43);
-            this.tabCustomer.Controls.Add(this.textBox14);
-            this.tabCustomer.Controls.Add(this.textBox15);
-            this.tabCustomer.Controls.Add(this.textBox5);
+            this.tabCustomer.Controls.Add(this.cqTextBox);
+            this.tabCustomer.Controls.Add(this.cpTextBox);
+            this.tabCustomer.Controls.Add(this.custCVVTextBox);
             this.tabCustomer.Controls.Add(this.label19);
-            this.tabCustomer.Controls.Add(this.dnTextBox);
-            this.tabCustomer.Controls.Add(this.textBox4);
+            this.tabCustomer.Controls.Add(this.cdnTextBox);
+            this.tabCustomer.Controls.Add(this.custCCTextBox);
             this.tabCustomer.Controls.Add(this.label4);
             this.tabCustomer.Controls.Add(this.label10);
-            this.tabCustomer.Controls.Add(this.enTextBox);
+            this.tabCustomer.Controls.Add(this.cenTextBox);
             this.tabCustomer.Controls.Add(this.label9);
             this.tabCustomer.Controls.Add(this.label3);
-            this.tabCustomer.Controls.Add(this.label7);
+            this.tabCustomer.Controls.Add(this.custCostLbl);
             this.tabCustomer.Controls.Add(this.label8);
-            this.tabCustomer.Controls.Add(this.textBox3);
+            this.tabCustomer.Controls.Add(this.custContactNoTextBox);
             this.tabCustomer.Controls.Add(this.label18);
-            this.tabCustomer.Controls.Add(this.textBox2);
+            this.tabCustomer.Controls.Add(this.custAddressTextBox);
             this.tabCustomer.Controls.Add(this.label16);
-            this.tabCustomer.Controls.Add(this.textBox1);
+            this.tabCustomer.Controls.Add(this.custNameTextBox);
             this.tabCustomer.Controls.Add(this.label17);
-            this.tabCustomer.Controls.Add(this.label15);
+            this.tabCustomer.Controls.Add(this.custProductNoLbl);
             this.tabCustomer.Controls.Add(this.label14);
-            this.tabCustomer.Controls.Add(this.label13);
+            this.tabCustomer.Controls.Add(this.custProductNameLbl);
             this.tabCustomer.Controls.Add(this.label12);
-            this.tabCustomer.Controls.Add(this.button1);
+            this.tabCustomer.Controls.Add(this.custMakePaymentBut);
             this.tabCustomer.Controls.Add(this.label11);
             this.tabCustomer.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCustomer.ForeColor = System.Drawing.SystemColors.Window;
@@ -179,14 +183,71 @@
             this.tabCustomer.TabIndex = 0;
             this.tabCustomer.Text = "Customer";
             // 
-            // textBox5
+            // label41
             // 
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(156, 289);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(65, 27);
-            this.textBox5.TabIndex = 47;
-            this.textBox5.Text = "123";
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label41.Location = new System.Drawing.Point(348, 102);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(21, 19);
+            this.label41.TabIndex = 54;
+            this.label41.Text = "E:";
+            // 
+            // ceTextBox
+            // 
+            this.ceTextBox.Location = new System.Drawing.Point(395, 102);
+            this.ceTextBox.Name = "ceTextBox";
+            this.ceTextBox.Size = new System.Drawing.Size(100, 37);
+            this.ceTextBox.TabIndex = 53;
+            this.ceTextBox.Text = "3";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label42.Location = new System.Drawing.Point(348, 59);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(24, 19);
+            this.label42.TabIndex = 52;
+            this.label42.Text = "Q:";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label43.Location = new System.Drawing.Point(348, 20);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(22, 19);
+            this.label43.TabIndex = 51;
+            this.label43.Text = "P:";
+            // 
+            // cqTextBox
+            // 
+            this.cqTextBox.Location = new System.Drawing.Point(395, 59);
+            this.cqTextBox.Name = "cqTextBox";
+            this.cqTextBox.Size = new System.Drawing.Size(100, 37);
+            this.cqTextBox.TabIndex = 50;
+            this.cqTextBox.Text = "11";
+            // 
+            // cpTextBox
+            // 
+            this.cpTextBox.Location = new System.Drawing.Point(396, 17);
+            this.cpTextBox.Name = "cpTextBox";
+            this.cpTextBox.Size = new System.Drawing.Size(100, 37);
+            this.cpTextBox.TabIndex = 49;
+            this.cpTextBox.Text = "2";
+            // 
+            // custCVVTextBox
+            // 
+            this.custCVVTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custCVVTextBox.Location = new System.Drawing.Point(156, 289);
+            this.custCVVTextBox.Name = "custCVVTextBox";
+            this.custCVVTextBox.Size = new System.Drawing.Size(65, 27);
+            this.custCVVTextBox.TabIndex = 47;
+            this.custCVVTextBox.Text = "123";
             // 
             // label19
             // 
@@ -199,14 +260,33 @@
             this.label19.TabIndex = 48;
             this.label19.Text = "CVV";
             // 
-            // textBox4
+            // cdnTextBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(156, 256);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(169, 27);
-            this.textBox4.TabIndex = 45;
-            this.textBox4.Text = "0435981457";
+            this.cdnTextBox.Location = new System.Drawing.Point(395, 185);
+            this.cdnTextBox.Name = "cdnTextBox";
+            this.cdnTextBox.ReadOnly = true;
+            this.cdnTextBox.Size = new System.Drawing.Size(100, 37);
+            this.cdnTextBox.TabIndex = 25;
+            // 
+            // custCCTextBox
+            // 
+            this.custCCTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custCCTextBox.Location = new System.Drawing.Point(156, 256);
+            this.custCCTextBox.Name = "custCCTextBox";
+            this.custCCTextBox.Size = new System.Drawing.Size(169, 27);
+            this.custCCTextBox.TabIndex = 45;
+            this.custCCTextBox.Text = "0435981457";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(336, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "(d, n)";
             // 
             // label10
             // 
@@ -219,6 +299,14 @@
             this.label10.TabIndex = 46;
             this.label10.Text = "CC #";
             // 
+            // cenTextBox
+            // 
+            this.cenTextBox.Location = new System.Drawing.Point(395, 145);
+            this.cenTextBox.Name = "cenTextBox";
+            this.cenTextBox.ReadOnly = true;
+            this.cenTextBox.Size = new System.Drawing.Size(100, 37);
+            this.cenTextBox.TabIndex = 23;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -230,16 +318,27 @@
             this.label9.TabIndex = 44;
             this.label9.Text = "Payment Info";
             // 
-            // label7
+            // label3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(153, 234);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 19);
-            this.label7.TabIndex = 43;
-            this.label7.Text = "50.00";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(337, 156);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 19);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "(e, n)";
+            // 
+            // custCostLbl
+            // 
+            this.custCostLbl.AutoSize = true;
+            this.custCostLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custCostLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.custCostLbl.Location = new System.Drawing.Point(153, 234);
+            this.custCostLbl.Name = "custCostLbl";
+            this.custCostLbl.Size = new System.Drawing.Size(45, 19);
+            this.custCostLbl.TabIndex = 43;
+            this.custCostLbl.Text = "50.00";
             // 
             // label8
             // 
@@ -252,14 +351,14 @@
             this.label8.TabIndex = 42;
             this.label8.Text = "Cost:";
             // 
-            // textBox3
+            // custContactNoTextBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(154, 157);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 27);
-            this.textBox3.TabIndex = 40;
-            this.textBox3.Text = "0435981457";
+            this.custContactNoTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custContactNoTextBox.Location = new System.Drawing.Point(154, 157);
+            this.custContactNoTextBox.Name = "custContactNoTextBox";
+            this.custContactNoTextBox.Size = new System.Drawing.Size(171, 27);
+            this.custContactNoTextBox.TabIndex = 40;
+            this.custContactNoTextBox.Text = "0435981457";
             // 
             // label18
             // 
@@ -272,14 +371,14 @@
             this.label18.TabIndex = 41;
             this.label18.Text = "Contact #:";
             // 
-            // textBox2
+            // custAddressTextBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(153, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 27);
-            this.textBox2.TabIndex = 38;
-            this.textBox2.Text = "123 fake street, sydney";
+            this.custAddressTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custAddressTextBox.Location = new System.Drawing.Point(153, 118);
+            this.custAddressTextBox.Name = "custAddressTextBox";
+            this.custAddressTextBox.Size = new System.Drawing.Size(172, 27);
+            this.custAddressTextBox.TabIndex = 38;
+            this.custAddressTextBox.Text = "123 fake street, sydney";
             // 
             // label16
             // 
@@ -292,14 +391,14 @@
             this.label16.TabIndex = 39;
             this.label16.Text = "Address:";
             // 
-            // textBox1
+            // custNameTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(153, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 27);
-            this.textBox1.TabIndex = 28;
-            this.textBox1.Text = "Chris Boctor";
+            this.custNameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custNameTextBox.Location = new System.Drawing.Point(153, 84);
+            this.custNameTextBox.Name = "custNameTextBox";
+            this.custNameTextBox.Size = new System.Drawing.Size(172, 27);
+            this.custNameTextBox.TabIndex = 28;
+            this.custNameTextBox.Text = "Chris Boctor";
             // 
             // label17
             // 
@@ -312,16 +411,16 @@
             this.label17.TabIndex = 37;
             this.label17.Text = "Name:";
             // 
-            // label15
+            // custProductNoLbl
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(149, 60);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 19);
-            this.label15.TabIndex = 36;
-            this.label15.Text = "12345";
+            this.custProductNoLbl.AutoSize = true;
+            this.custProductNoLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custProductNoLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.custProductNoLbl.Location = new System.Drawing.Point(149, 60);
+            this.custProductNoLbl.Name = "custProductNoLbl";
+            this.custProductNoLbl.Size = new System.Drawing.Size(49, 19);
+            this.custProductNoLbl.TabIndex = 36;
+            this.custProductNoLbl.Text = "12345";
             // 
             // label14
             // 
@@ -334,16 +433,16 @@
             this.label14.TabIndex = 35;
             this.label14.Text = "Product #:";
             // 
-            // label13
+            // custProductNameLbl
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(149, 39);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 19);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "Item";
+            this.custProductNameLbl.AutoSize = true;
+            this.custProductNameLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custProductNameLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.custProductNameLbl.Location = new System.Drawing.Point(150, 39);
+            this.custProductNameLbl.Name = "custProductNameLbl";
+            this.custProductNameLbl.Size = new System.Drawing.Size(40, 19);
+            this.custProductNameLbl.TabIndex = 34;
+            this.custProductNameLbl.Text = "Item";
             // 
             // label12
             // 
@@ -356,15 +455,16 @@
             this.label12.TabIndex = 33;
             this.label12.Text = "Product Name:";
             // 
-            // button1
+            // custMakePaymentBut
             // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(20, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 59);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Make Payment";
-            this.button1.UseVisualStyleBackColor = true;
+            this.custMakePaymentBut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.custMakePaymentBut.Location = new System.Drawing.Point(20, 374);
+            this.custMakePaymentBut.Name = "custMakePaymentBut";
+            this.custMakePaymentBut.Size = new System.Drawing.Size(171, 59);
+            this.custMakePaymentBut.TabIndex = 28;
+            this.custMakePaymentBut.Text = "Make Payment";
+            this.custMakePaymentBut.UseVisualStyleBackColor = true;
+            this.custMakePaymentBut.Click += new System.EventHandler(this.custMakePaymentBut_Click);
             // 
             // label11
             // 
@@ -380,26 +480,27 @@
             // tabMerchant
             // 
             this.tabMerchant.BackColor = System.Drawing.Color.DarkGray;
+            this.tabMerchant.Controls.Add(this.merchContactTextBox);
+            this.tabMerchant.Controls.Add(this.merchAddressTextBox);
+            this.tabMerchant.Controls.Add(this.merchNameTextBox);
+            this.tabMerchant.Controls.Add(this.merchProductNoLbl);
+            this.tabMerchant.Controls.Add(this.merchProductNameLbl);
             this.tabMerchant.Controls.Add(this.label38);
-            this.tabMerchant.Controls.Add(this.textBox10);
+            this.tabMerchant.Controls.Add(this.meTextBox);
             this.tabMerchant.Controls.Add(this.label39);
             this.tabMerchant.Controls.Add(this.label40);
-            this.tabMerchant.Controls.Add(this.textBox11);
-            this.tabMerchant.Controls.Add(this.textBox12);
-            this.tabMerchant.Controls.Add(this.textBox6);
+            this.tabMerchant.Controls.Add(this.mqTextBox);
+            this.tabMerchant.Controls.Add(this.mpTextBox);
+            this.tabMerchant.Controls.Add(this.mdnTextBox);
             this.tabMerchant.Controls.Add(this.label23);
-            this.tabMerchant.Controls.Add(this.textBox7);
+            this.tabMerchant.Controls.Add(this.menTextBox);
             this.tabMerchant.Controls.Add(this.label28);
             this.tabMerchant.Controls.Add(this.lblcvv);
             this.tabMerchant.Controls.Add(this.lblcc);
             this.tabMerchant.Controls.Add(this.lblcontactnum);
             this.tabMerchant.Controls.Add(this.lbladdress);
             this.tabMerchant.Controls.Add(this.lblname);
-            this.tabMerchant.Controls.Add(this.label20);
-            this.tabMerchant.Controls.Add(this.label21);
-            this.tabMerchant.Controls.Add(this.label22);
             this.tabMerchant.Controls.Add(this.lblcost);
-            this.tabMerchant.Controls.Add(this.label24);
             this.tabMerchant.Controls.Add(this.label25);
             this.tabMerchant.Controls.Add(this.label26);
             this.tabMerchant.Controls.Add(this.label27);
@@ -408,7 +509,7 @@
             this.tabMerchant.Controls.Add(this.lblproduct);
             this.tabMerchant.Controls.Add(this.label31);
             this.tabMerchant.Controls.Add(this.label32);
-            this.tabMerchant.Controls.Add(this.button3);
+            this.tabMerchant.Controls.Add(this.merchGetInfoBut);
             this.tabMerchant.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabMerchant.Location = new System.Drawing.Point(4, 22);
             this.tabMerchant.Name = "tabMerchant";
@@ -416,6 +517,151 @@
             this.tabMerchant.Size = new System.Drawing.Size(502, 458);
             this.tabMerchant.TabIndex = 1;
             this.tabMerchant.Text = "Merchant";
+            // 
+            // merchContactTextBox
+            // 
+            this.merchContactTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchContactTextBox.Location = new System.Drawing.Point(154, 157);
+            this.merchContactTextBox.Name = "merchContactTextBox";
+            this.merchContactTextBox.Size = new System.Drawing.Size(171, 27);
+            this.merchContactTextBox.TabIndex = 81;
+            this.merchContactTextBox.Text = "0435981457";
+            // 
+            // merchAddressTextBox
+            // 
+            this.merchAddressTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchAddressTextBox.Location = new System.Drawing.Point(153, 118);
+            this.merchAddressTextBox.Name = "merchAddressTextBox";
+            this.merchAddressTextBox.Size = new System.Drawing.Size(172, 27);
+            this.merchAddressTextBox.TabIndex = 80;
+            this.merchAddressTextBox.Text = "123 fake street, sydney";
+            // 
+            // merchNameTextBox
+            // 
+            this.merchNameTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchNameTextBox.Location = new System.Drawing.Point(153, 84);
+            this.merchNameTextBox.Name = "merchNameTextBox";
+            this.merchNameTextBox.Size = new System.Drawing.Size(172, 27);
+            this.merchNameTextBox.TabIndex = 77;
+            this.merchNameTextBox.Text = "Chris Boctor";
+            // 
+            // merchProductNoLbl
+            // 
+            this.merchProductNoLbl.AutoSize = true;
+            this.merchProductNoLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchProductNoLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.merchProductNoLbl.Location = new System.Drawing.Point(149, 60);
+            this.merchProductNoLbl.Name = "merchProductNoLbl";
+            this.merchProductNoLbl.Size = new System.Drawing.Size(49, 19);
+            this.merchProductNoLbl.TabIndex = 79;
+            this.merchProductNoLbl.Text = "12345";
+            // 
+            // merchProductNameLbl
+            // 
+            this.merchProductNameLbl.AutoSize = true;
+            this.merchProductNameLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchProductNameLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.merchProductNameLbl.Location = new System.Drawing.Point(150, 39);
+            this.merchProductNameLbl.Name = "merchProductNameLbl";
+            this.merchProductNameLbl.Size = new System.Drawing.Size(40, 19);
+            this.merchProductNameLbl.TabIndex = 78;
+            this.merchProductNameLbl.Text = "Item";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label38.Location = new System.Drawing.Point(348, 102);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(21, 19);
+            this.label38.TabIndex = 76;
+            this.label38.Text = "E:";
+            // 
+            // meTextBox
+            // 
+            this.meTextBox.Location = new System.Drawing.Point(395, 102);
+            this.meTextBox.Name = "meTextBox";
+            this.meTextBox.Size = new System.Drawing.Size(100, 37);
+            this.meTextBox.TabIndex = 75;
+            this.meTextBox.Text = "5";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label39.Location = new System.Drawing.Point(348, 59);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(24, 19);
+            this.label39.TabIndex = 74;
+            this.label39.Text = "Q:";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label40.Location = new System.Drawing.Point(348, 20);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(22, 19);
+            this.label40.TabIndex = 73;
+            this.label40.Text = "P:";
+            // 
+            // mqTextBox
+            // 
+            this.mqTextBox.Location = new System.Drawing.Point(395, 59);
+            this.mqTextBox.Name = "mqTextBox";
+            this.mqTextBox.Size = new System.Drawing.Size(100, 37);
+            this.mqTextBox.TabIndex = 72;
+            this.mqTextBox.Text = "13";
+            // 
+            // mpTextBox
+            // 
+            this.mpTextBox.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mpTextBox.Location = new System.Drawing.Point(396, 17);
+            this.mpTextBox.Name = "mpTextBox";
+            this.mpTextBox.Size = new System.Drawing.Size(100, 37);
+            this.mpTextBox.TabIndex = 71;
+            this.mpTextBox.Text = "5";
+            // 
+            // mdnTextBox
+            // 
+            this.mdnTextBox.Location = new System.Drawing.Point(395, 185);
+            this.mdnTextBox.Name = "mdnTextBox";
+            this.mdnTextBox.ReadOnly = true;
+            this.mdnTextBox.Size = new System.Drawing.Size(100, 37);
+            this.mdnTextBox.TabIndex = 70;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(336, 196);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 19);
+            this.label23.TabIndex = 69;
+            this.label23.Text = "(d, n)";
+            // 
+            // menTextBox
+            // 
+            this.menTextBox.Location = new System.Drawing.Point(395, 145);
+            this.menTextBox.Name = "menTextBox";
+            this.menTextBox.ReadOnly = true;
+            this.menTextBox.Size = new System.Drawing.Size(100, 37);
+            this.menTextBox.TabIndex = 68;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label28.Location = new System.Drawing.Point(337, 156);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(44, 19);
+            this.label28.TabIndex = 67;
+            this.label28.Text = "(e, n)";
             // 
             // lblcvv
             // 
@@ -456,7 +702,6 @@
             this.lbladdress.Name = "lbladdress";
             this.lbladdress.Size = new System.Drawing.Size(0, 19);
             this.lbladdress.TabIndex = 63;
-            this.lbladdress.Click += new System.EventHandler(this.label33_Click);
             // 
             // lblname
             // 
@@ -468,39 +713,6 @@
             this.lblname.Size = new System.Drawing.Size(0, 19);
             this.lblname.TabIndex = 62;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label20.Location = new System.Drawing.Point(20, 295);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(35, 19);
-            this.label20.TabIndex = 61;
-            this.label20.Text = "CVV";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(20, 262);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(37, 19);
-            this.label21.TabIndex = 60;
-            this.label21.Text = "CC #";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(20, 206);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(101, 19);
-            this.label22.TabIndex = 59;
-            this.label22.Text = "Payment Info";
-            // 
             // lblcost
             // 
             this.lblcost.AutoSize = true;
@@ -510,17 +722,6 @@
             this.lblcost.Name = "lblcost";
             this.lblcost.Size = new System.Drawing.Size(0, 19);
             this.lblcost.TabIndex = 58;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(20, 234);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(42, 19);
-            this.label24.TabIndex = 57;
-            this.label24.Text = "Cost:";
             // 
             // label25
             // 
@@ -608,31 +809,34 @@
             this.label32.TabIndex = 49;
             this.label32.Text = "Order Info";
             // 
-            // button3
+            // merchGetInfoBut
             // 
-            this.button3.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(20, 374);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 59);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "Get Info";
-            this.button3.UseVisualStyleBackColor = true;
+            this.merchGetInfoBut.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.merchGetInfoBut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.merchGetInfoBut.Location = new System.Drawing.Point(20, 374);
+            this.merchGetInfoBut.Name = "merchGetInfoBut";
+            this.merchGetInfoBut.Size = new System.Drawing.Size(171, 59);
+            this.merchGetInfoBut.TabIndex = 28;
+            this.merchGetInfoBut.Text = "Get Info";
+            this.merchGetInfoBut.UseVisualStyleBackColor = true;
             // 
             // tabBank
             // 
             this.tabBank.BackColor = System.Drawing.Color.DarkGray;
+            this.tabBank.Controls.Add(this.bankCVVTextBox);
+            this.tabBank.Controls.Add(this.bankCCTextBox);
+            this.tabBank.Controls.Add(this.bankCostLbl);
             this.tabBank.Controls.Add(this.label6);
-            this.tabBank.Controls.Add(this.textBox8);
-            this.tabBank.Controls.Add(this.eValue);
+            this.tabBank.Controls.Add(this.bdnTextBox);
+            this.tabBank.Controls.Add(this.beTextBox);
             this.tabBank.Controls.Add(this.label35);
             this.tabBank.Controls.Add(this.label2);
-            this.tabBank.Controls.Add(this.textBox9);
+            this.tabBank.Controls.Add(this.benTextBox);
             this.tabBank.Controls.Add(this.label5);
             this.tabBank.Controls.Add(this.label37);
-            this.tabBank.Controls.Add(this.qValue);
-            this.tabBank.Controls.Add(this.button4);
-            this.tabBank.Controls.Add(this.pValue);
+            this.tabBank.Controls.Add(this.bqTextBox);
+            this.tabBank.Controls.Add(this.bankGetInfoBut);
+            this.tabBank.Controls.Add(this.bpTextBox);
             this.tabBank.Controls.Add(this.lblcvvbank);
             this.tabBank.Controls.Add(this.lblccbank);
             this.tabBank.Controls.Add(this.label30);
@@ -648,16 +852,140 @@
             this.tabBank.TabIndex = 2;
             this.tabBank.Text = "Bank";
             // 
-            // button4
+            // bankCVVTextBox
             // 
-            this.button4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(20, 374);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 59);
-            this.button4.TabIndex = 74;
-            this.button4.Text = "Get Info";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bankCVVTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bankCVVTextBox.Location = new System.Drawing.Point(151, 101);
+            this.bankCVVTextBox.Name = "bankCVVTextBox";
+            this.bankCVVTextBox.Size = new System.Drawing.Size(65, 27);
+            this.bankCVVTextBox.TabIndex = 81;
+            this.bankCVVTextBox.Text = "123";
+            // 
+            // bankCCTextBox
+            // 
+            this.bankCCTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bankCCTextBox.Location = new System.Drawing.Point(151, 68);
+            this.bankCCTextBox.Name = "bankCCTextBox";
+            this.bankCCTextBox.Size = new System.Drawing.Size(169, 27);
+            this.bankCCTextBox.TabIndex = 80;
+            this.bankCCTextBox.Text = "0435981457";
+            // 
+            // bankCostLbl
+            // 
+            this.bankCostLbl.AutoSize = true;
+            this.bankCostLbl.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bankCostLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bankCostLbl.Location = new System.Drawing.Point(147, 48);
+            this.bankCostLbl.Name = "bankCostLbl";
+            this.bankCostLbl.Size = new System.Drawing.Size(45, 19);
+            this.bankCostLbl.TabIndex = 79;
+            this.bankCostLbl.Text = "50.00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(348, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 19);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "E:";
+            // 
+            // bdnTextBox
+            // 
+            this.bdnTextBox.Location = new System.Drawing.Point(395, 185);
+            this.bdnTextBox.Name = "bdnTextBox";
+            this.bdnTextBox.ReadOnly = true;
+            this.bdnTextBox.Size = new System.Drawing.Size(100, 37);
+            this.bdnTextBox.TabIndex = 78;
+            // 
+            // beTextBox
+            // 
+            this.beTextBox.Location = new System.Drawing.Point(395, 102);
+            this.beTextBox.Name = "beTextBox";
+            this.beTextBox.Size = new System.Drawing.Size(100, 37);
+            this.beTextBox.TabIndex = 26;
+            this.beTextBox.Text = "5";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label35.Location = new System.Drawing.Point(336, 196);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(45, 19);
+            this.label35.TabIndex = 77;
+            this.label35.Text = "(d, n)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(348, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 19);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Q:";
+            // 
+            // benTextBox
+            // 
+            this.benTextBox.Location = new System.Drawing.Point(395, 145);
+            this.benTextBox.Name = "benTextBox";
+            this.benTextBox.ReadOnly = true;
+            this.benTextBox.Size = new System.Drawing.Size(100, 37);
+            this.benTextBox.TabIndex = 76;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(348, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(22, 19);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "P:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label37.Location = new System.Drawing.Point(337, 156);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(44, 19);
+            this.label37.TabIndex = 75;
+            this.label37.Text = "(e, n)";
+            // 
+            // bqTextBox
+            // 
+            this.bqTextBox.Location = new System.Drawing.Point(395, 59);
+            this.bqTextBox.Name = "bqTextBox";
+            this.bqTextBox.Size = new System.Drawing.Size(100, 37);
+            this.bqTextBox.TabIndex = 19;
+            this.bqTextBox.Text = "13";
+            // 
+            // bankGetInfoBut
+            // 
+            this.bankGetInfoBut.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bankGetInfoBut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bankGetInfoBut.Location = new System.Drawing.Point(20, 374);
+            this.bankGetInfoBut.Name = "bankGetInfoBut";
+            this.bankGetInfoBut.Size = new System.Drawing.Size(171, 59);
+            this.bankGetInfoBut.TabIndex = 74;
+            this.bankGetInfoBut.Text = "Get Info";
+            this.bankGetInfoBut.UseVisualStyleBackColor = true;
+            // 
+            // bpTextBox
+            // 
+            this.bpTextBox.Location = new System.Drawing.Point(396, 17);
+            this.bpTextBox.Name = "bpTextBox";
+            this.bpTextBox.Size = new System.Drawing.Size(100, 37);
+            this.bpTextBox.TabIndex = 18;
+            this.bpTextBox.Text = "5";
             // 
             // lblcvvbank
             // 
@@ -747,7 +1075,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.simMMBut);
             this.panel1.Controls.Add(this.startBut);
             this.panel1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -756,110 +1084,15 @@
             this.panel1.Size = new System.Drawing.Size(522, 145);
             this.panel1.TabIndex = 2;
             // 
-            // label6
+            // simMMBut
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(348, 102);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 19);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "E:";
-            // 
-            // eValue
-            // 
-            this.eValue.Location = new System.Drawing.Point(395, 102);
-            this.eValue.Name = "eValue";
-            this.eValue.Size = new System.Drawing.Size(100, 37);
-            this.eValue.TabIndex = 26;
-            this.eValue.Text = "5";
-            // 
-            // dnTextBox
-            // 
-            this.dnTextBox.Location = new System.Drawing.Point(395, 185);
-            this.dnTextBox.Name = "dnTextBox";
-            this.dnTextBox.ReadOnly = true;
-            this.dnTextBox.Size = new System.Drawing.Size(100, 37);
-            this.dnTextBox.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(336, 196);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 19);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "(d, n)";
-            // 
-            // enTextBox
-            // 
-            this.enTextBox.Location = new System.Drawing.Point(395, 145);
-            this.enTextBox.Name = "enTextBox";
-            this.enTextBox.ReadOnly = true;
-            this.enTextBox.Size = new System.Drawing.Size(100, 37);
-            this.enTextBox.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(337, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 19);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "(e, n)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(348, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 19);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Q:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(348, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 19);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "P:";
-            // 
-            // qValue
-            // 
-            this.qValue.Location = new System.Drawing.Point(395, 59);
-            this.qValue.Name = "qValue";
-            this.qValue.Size = new System.Drawing.Size(100, 37);
-            this.qValue.TabIndex = 19;
-            this.qValue.Text = "13";
-            // 
-            // pValue
-            // 
-            this.pValue.Location = new System.Drawing.Point(396, 17);
-            this.pValue.Name = "pValue";
-            this.pValue.Size = new System.Drawing.Size(100, 37);
-            this.pValue.TabIndex = 18;
-            this.pValue.Text = "5";
-            // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(182, 76);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 59);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Simulate Man-in-the-Middle";
-            this.button2.UseVisualStyleBackColor = true;
+            this.simMMBut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.simMMBut.Location = new System.Drawing.Point(182, 76);
+            this.simMMBut.Name = "simMMBut";
+            this.simMMBut.Size = new System.Drawing.Size(170, 59);
+            this.simMMBut.TabIndex = 17;
+            this.simMMBut.Text = "Simulate Man-in-the-Middle";
+            this.simMMBut.UseVisualStyleBackColor = true;
             // 
             // startBut
             // 
@@ -870,6 +1103,7 @@
             this.startBut.TabIndex = 16;
             this.startBut.Text = "Start";
             this.startBut.UseVisualStyleBackColor = true;
+            this.startBut.Click += new System.EventHandler(this.startBut_Click);
             // 
             // panel2
             // 
@@ -925,197 +1159,6 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(395, 185);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 37);
-            this.textBox6.TabIndex = 70;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(336, 196);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 19);
-            this.label23.TabIndex = 69;
-            this.label23.Text = "(d, n)";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(395, 145);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 37);
-            this.textBox7.TabIndex = 68;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label28.Location = new System.Drawing.Point(337, 156);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(44, 19);
-            this.label28.TabIndex = 67;
-            this.label28.Text = "(e, n)";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(395, 185);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(100, 37);
-            this.textBox8.TabIndex = 78;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label35.Location = new System.Drawing.Point(336, 196);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(45, 19);
-            this.label35.TabIndex = 77;
-            this.label35.Text = "(d, n)";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(395, 145);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(100, 37);
-            this.textBox9.TabIndex = 76;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label37.Location = new System.Drawing.Point(337, 156);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(44, 19);
-            this.label37.TabIndex = 75;
-            this.label37.Text = "(e, n)";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label38.Location = new System.Drawing.Point(348, 102);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(21, 19);
-            this.label38.TabIndex = 76;
-            this.label38.Text = "E:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(395, 102);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 37);
-            this.textBox10.TabIndex = 75;
-            this.textBox10.Text = "5";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label39.Location = new System.Drawing.Point(348, 59);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(24, 19);
-            this.label39.TabIndex = 74;
-            this.label39.Text = "Q:";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label40.Location = new System.Drawing.Point(348, 20);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(22, 19);
-            this.label40.TabIndex = 73;
-            this.label40.Text = "P:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(395, 59);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 37);
-            this.textBox11.TabIndex = 72;
-            this.textBox11.Text = "13";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(396, 17);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 37);
-            this.textBox12.TabIndex = 71;
-            this.textBox12.Text = "5";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label41.Location = new System.Drawing.Point(348, 102);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(21, 19);
-            this.label41.TabIndex = 54;
-            this.label41.Text = "E:";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(395, 102);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 37);
-            this.textBox13.TabIndex = 53;
-            this.textBox13.Text = "5";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label42.Location = new System.Drawing.Point(348, 59);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(24, 19);
-            this.label42.TabIndex = 52;
-            this.label42.Text = "Q:";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label43.Location = new System.Drawing.Point(348, 20);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(22, 19);
-            this.label43.TabIndex = 51;
-            this.label43.Text = "P:";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(395, 59);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 37);
-            this.textBox14.TabIndex = 50;
-            this.textBox14.Text = "13";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(396, 17);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 37);
-            this.textBox15.TabIndex = 49;
-            this.textBox15.Text = "5";
-            // 
             // SETGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1131,6 +1174,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SETGui";
             this.Text = "Secure Electronic Transaction";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SETGui_FormClosed);
+            this.Load += new System.EventHandler(this.SETGui_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabCustomer.ResumeLayout(false);
             this.tabCustomer.PerformLayout();
@@ -1151,7 +1196,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabCustomer;
-        private System.Windows.Forms.TabPage tabMerchant;
         private System.Windows.Forms.TabPage tabBank;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -1160,45 +1204,77 @@
         private System.Windows.Forms.Label lbllog;
         private System.Windows.Forms.Label lblecrypt;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox eValue;
-        private System.Windows.Forms.TextBox dnTextBox;
+        private System.Windows.Forms.TextBox beTextBox;
+        private System.Windows.Forms.TextBox cdnTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox enTextBox;
+        private System.Windows.Forms.TextBox cenTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox qValue;
-        private System.Windows.Forms.TextBox pValue;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox bqTextBox;
+        private System.Windows.Forms.TextBox bpTextBox;
+        private System.Windows.Forms.Button simMMBut;
         private System.Windows.Forms.Button startBut;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button custMakePaymentBut;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label custProductNoLbl;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label custProductNameLbl;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox custAddressTextBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox custNameTextBox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox custCVVTextBox;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox custCCTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label custCostLbl;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox custContactNoTextBox;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button bankGetInfoBut;
+        private System.Windows.Forms.Label lblcvvbank;
+        private System.Windows.Forms.Label lblccbank;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lblcostbank;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox bdnTextBox;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox benTextBox;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox ceTextBox;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox cqTextBox;
+        private System.Windows.Forms.TextBox cpTextBox;
+        private System.Windows.Forms.TabPage tabMerchant;
+        private System.Windows.Forms.TextBox merchContactTextBox;
+        private System.Windows.Forms.TextBox merchAddressTextBox;
+        private System.Windows.Forms.TextBox merchNameTextBox;
+        private System.Windows.Forms.Label merchProductNoLbl;
+        private System.Windows.Forms.Label merchProductNameLbl;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox meTextBox;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox mqTextBox;
+        private System.Windows.Forms.TextBox mpTextBox;
+        private System.Windows.Forms.TextBox mdnTextBox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox menTextBox;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblcvv;
+        private System.Windows.Forms.Label lblcc;
         private System.Windows.Forms.Label lblcontactnum;
         private System.Windows.Forms.Label lbladdress;
         private System.Windows.Forms.Label lblname;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblcost;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
@@ -1207,36 +1283,9 @@
         private System.Windows.Forms.Label lblproduct;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label lblcvv;
-        private System.Windows.Forms.Label lblcc;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblcvvbank;
-        private System.Windows.Forms.Label lblccbank;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label lblcostbank;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Button merchGetInfoBut;
+        private System.Windows.Forms.TextBox bankCVVTextBox;
+        private System.Windows.Forms.TextBox bankCCTextBox;
+        private System.Windows.Forms.Label bankCostLbl;
     }
 }
