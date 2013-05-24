@@ -13,6 +13,7 @@ namespace NetSecSET.Model
 {
     class Util
     {
+        // enabling files to be called on
         public static string m_TAG = "Util";
         public static string m_OIFileName = "OI.txt";
         public static string m_PIFileName = "PI.txt";
@@ -44,6 +45,7 @@ namespace NetSecSET.Model
 
         public static void saveCertificate(string fileName, Certificate cert)
         {
+            // save Certificate
             XmlSerializer s = new XmlSerializer(typeof(Certificate));
             TextWriter tw = new StreamWriter(@fileName);
             s.Serialize(tw, cert);
@@ -83,6 +85,7 @@ namespace NetSecSET.Model
 
         public static void saveOI(string fileName, OrderInfo OI)
         {
+            // save OI 
             XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
             TextWriter tw = new StreamWriter(@fileName);
             s.Serialize(tw, OI);
@@ -120,6 +123,7 @@ namespace NetSecSET.Model
 
         public static void savePI(string fileName, PaymentInfo PI)
         {
+            // save PI
             XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
             TextWriter tw = new StreamWriter(@fileName);
             s.Serialize(tw, PI);
@@ -141,6 +145,7 @@ namespace NetSecSET.Model
          */
         public static void WriteDualSignature(UInt32 dualSignature)
         {
+            // writing dual signature with random integers
             File.WriteAllText(@m_DualSignatureFileName, dualSignature + "");
         
         }
