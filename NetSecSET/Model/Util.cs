@@ -183,7 +183,7 @@ namespace NetSecSET.Model
                 if (!EventLog.SourceExists(sSource))
                     EventLog.CreateEventSource(sSource, sLog);
 
-                // Write an informational entry to the event log.    
+                // Write an informational entry to the event log   
                 EventLog.WriteEntry(sSource, s);
             }
             catch (Exception e)
@@ -194,6 +194,7 @@ namespace NetSecSET.Model
 
         public static void Log(string tag, string msg)
         {
+            // datetime of entry logged
             string s = "";
             s += "\r\nLog Entry : ";
             s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
