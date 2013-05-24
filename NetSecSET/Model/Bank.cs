@@ -12,6 +12,7 @@ namespace NetSecSET.Model
     class Bank
     {
 
+        //calling hash and RSA for certificates, public and private keys
         private string m_TAG = "Bank";
         private Bernstein hash = new Bernstein();
         private RSACryptoServiceProvider RSAProvider;
@@ -21,10 +22,11 @@ namespace NetSecSET.Model
         public Key privateKey { get; set; }
 
 
+        //assigning public and private keys to certificates for encryption/decryption
         public Bank(Key publicKey, Key privateKey)
         {
             this.publicKey = publicKey;
-            this.privateKey = privateKey;
+            this.privateKey = privateKey;  
             RSAProvider = new RSACryptoServiceProvider();
             createCertificate();
         }
