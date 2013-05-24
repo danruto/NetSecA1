@@ -43,11 +43,11 @@ namespace NetSecSET.Model
         {
             Util.Log(m_TAG, "creating dual signature...");
 
-            // get both the OI and PI from file
+            // obtain both the OI and PI from file
             string OI = Util.loadOI(Util.m_OIFileName);
             string PI = Util.loadPI(Util.m_PIFileName);
 
-            // create the hashs for both files
+            // create the hashes for both files
             UInt32 PIMD = createPIMDHash(PI);
             UInt32 OIMD = createOIMDHash(OI);
 
