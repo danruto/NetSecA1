@@ -14,13 +14,14 @@ namespace NetSecSET.Model
 
         public void writeOI(int pnumber, string pname, DateTime date, string custname, string custaddress, int custnumber)
         {
+            // OI parameters
             string content = "Product Number: " + pnumber;
             content += "\n Product Name: " + pname;
             content += "\n Order Date: " + Convert.ToString(date);
             content += "\n Customer Name: " + custname;
             content += "\n Customer address: " + custaddress;
             content += "\n Customer Contact: " + custnumber;
-            File.WriteAllText(@m_OIFileName, content);
+            File.WriteAllText(@m_OIFileName, content);lm // write info to txt file
         }
 
         public string getContent()
