@@ -8,6 +8,7 @@ namespace NetSecSET.Model
 {
     public class Key
     {
+        // get integers for k and n
         public int k { get; set; }
         public int n { get; set; }
     }
