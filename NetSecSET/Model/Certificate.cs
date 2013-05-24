@@ -20,12 +20,13 @@ namespace NetSecSET
             CustomerCertificate
         };
 
-        private string m_BankCertificateName = "Bank";
+        private string m_BankCertificateName = "Bank";  
         private string m_MerchantCertificateName = "Merchant";
         private string m_CustomerCertificateName = "Customer";
 
 
 
+        //enabling Certificates to call on RSA 
         public Certificate(t_CertificateType ct, RSACryptoServiceProvider RSAProvider)
         {
 
@@ -45,9 +46,10 @@ namespace NetSecSET
             }
         }
 
+        //creating Bank certificate 
         public void createBankCertificate(RSACryptoServiceProvider RSAProvider)
         {
-            Bernstein hash = new Bernstein();
+            Bernstein hash = new Bernstein(); //new Bernstein hash
             UInt32 hashValue = hash.getHash(m_BankCertificateName);
             UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
             string content = "Name: " + "Customer Certificate" +
@@ -59,11 +61,15 @@ namespace NetSecSET
             Util.saveCertificateText(Util.m_BankCertFileName, content);
         }
 
-        public void createMerchantCertificate(RSACryptoServiceProvider RSAProvider)
+       //creating Merchant certificate
+       public void createMerchantCertificate(RSACryptoServiceProvider RSAProvider)
         {
-            Bernstein hash = new Bernstein();
-            UInt32 hashValue = hash.getHash(m_MerchantCertificateName);
-            UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
+            //creating Bernstein hash function
+            Bernstein hash = new Bernstein(); 
+            //hash value for Merchant certificate
+            UInt32 hashValue = hash.getHash(m_MerchantCertificateName); 
+            //creating digital signature, applying hash value and RSA
+            UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider); 
             string content = "Name: " + "Customer Certificate" +
                              //"\nPublicKey: (" + publicKey.k + ", " + publicKey.n + ")" +
                              "\nPublic Key:\n" + RSAProvider.ToXmlString(false) +
@@ -73,6 +79,7 @@ namespace NetSecSET
             Util.saveCertificateText(Util.m_MerchantCertFileName, content);
         }
 
+        //creating Customer certificate
         public void createCustomerCertificate(RSACryptoServiceProvider RSAProvider)
         {
             /*byte[] tmp = Signature.createDigitalSignature(m_CustomerCertificateName, RSASec.getRSA());
@@ -88,7 +95,9 @@ namespace NetSecSET
             byte[] dSigDec = RSASec.getRSA().Decrypt(dSigTemp, false);
             UInt32 digitalSig2 = BitConverter.ToUInt32(dSigDec, 0);*/
 
+            //creating Bernstein hash to apply to certificates
             Bernstein hash = new Bernstein();
+            //obtaining hash value for Customer certificate
             UInt32 hashValue = hash.getHash(m_CustomerCertificateName);
             UInt32 digitalSignature = Signature.createDigitalSignature(hashValue, RSAProvider);
             string content = "Name: " + "Customer Certificate" +
