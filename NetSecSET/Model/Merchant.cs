@@ -12,6 +12,7 @@ namespace NetSecSET.Model
 {
     class Merchant
     {
+        // create hashes+keys for Merchant certificate
         private string m_TAG = "Merchant";
         private Bernstein hash = new Bernstein();
         private RSACryptoServiceProvider RSAProvider;
@@ -47,7 +48,7 @@ namespace NetSecSET.Model
                 string key = match.Groups[1].Value;
                 Util.Log(m_TAG, key);
             }
-            //string custPublicKey = 
+            
             //int DS, OrderInfo OI, int PIMD
             Bernstein hash = new Bernstein();
             UInt32 DS = Util.loadDualSignature();
@@ -64,6 +65,7 @@ namespace NetSecSET.Model
 
         }
 
+        // encrypting and decrypting OI, PIMD and OIMD
         public string hashOI(string OI)
         {
             
