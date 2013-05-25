@@ -22,7 +22,7 @@ namespace NetSecSET.Model
         public static UInt32 encrypt (string msg)
         {
             return 0;
-        }a
+        }
 
         // data encryption 
         public static UInt32 encrypt(UInt32 msg, RSACryptoServiceProvider RSAprovider)
