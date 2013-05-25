@@ -17,6 +17,8 @@ namespace NetSecSET.Model
         public static string m_TAG = "Util";
         public static string m_OIFileName = "OI.txt";
         public static string m_PIFileName = "PI.txt";
+        public static string m_OIEFileName = "OIE.txt";
+        public static string m_PIEFileName = "PIE.txt";
         public static string m_DualSignatureFileName = "DualSignature.txt";
         public static string m_CustCertFileName = "CustomerCertificate.txt";
         public static string m_MerchantCertFileName = "MerchantCertificate.txt";
@@ -83,7 +85,7 @@ namespace NetSecSET.Model
             return OI;
         }*/
 
-        public static void saveOI(string fileName, OrderInfo OI)
+        /*public static void saveOI(string fileName, OrderInfo OI)
         {
             // save OI 
             XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
@@ -91,9 +93,32 @@ namespace NetSecSET.Model
             s.Serialize(tw, OI);
             Log(m_TAG, "saving Order Information");
             tw.Close();
+        }*/
+
+        public static void saveOI(string fileName, string content)
+        {
+            File.WriteAllText(@fileName, content);
         }
 
         public static string loadOI(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllText(@fileName);
+            }
+            return "";
+        }
+
+        public static byte[] loadOIBytes(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllBytes(@fileName);
+            }
+            return new byte[0];
+        }
+
+        public static string loadOIMD(string fileName)
         {
             if (File.Exists(@fileName))
             {
@@ -121,7 +146,7 @@ namespace NetSecSET.Model
             return PI;
         }*/
 
-        public static void savePI(string fileName, PaymentInfo PI)
+        /*public static void savePI(string fileName, PaymentInfo PI)
         {
             // save PI
             XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
@@ -129,9 +154,32 @@ namespace NetSecSET.Model
             s.Serialize(tw, PI);
             Log(m_TAG, "saving Payment Information");
             tw.Close();
+        }*/
+
+        public static void savePI(string fileName, string content)
+        {
+            File.WriteAllText(@fileName, content);
         }
 
         public static string loadPI(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllText(@fileName);
+            }
+            return "";
+        }
+
+        public static byte[] loadPIBytes(string fileName)
+        {
+            if (File.Exists(@fileName))
+            {
+                return File.ReadAllBytes(@fileName);
+            }
+            return new byte[0];
+        }
+
+        public static string loadPIMD(string fileName)
         {
             if (File.Exists(@fileName))
             {

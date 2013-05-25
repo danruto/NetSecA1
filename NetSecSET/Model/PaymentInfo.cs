@@ -18,12 +18,12 @@ namespace NetSecSET.Model
             return File.ReadAllText(m_PIFileName);
         }
 
-        public void writePI(int cardnumber, int cvvnum, double payment)
+        public void writePI(string cardnumber, string cvvnum, double payment)
         {
             // PI parameters
             string content = "Credit Card Number: " + cardnumber;
-            content += "\n CVV Number: " + cvvnum;
-            content += "\n Payment Amount: " + payment;
+            content += "\nCVV Number: " + cvvnum;
+            content += "\nPayment Amount: " + String.Format("{0:0.##}", payment);
             File.WriteAllText(@m_PIFileName, content); // write to txt file
         }
 

@@ -275,7 +275,7 @@
             this.custCCTextBox.Name = "custCCTextBox";
             this.custCCTextBox.Size = new System.Drawing.Size(169, 27);
             this.custCCTextBox.TabIndex = 45;
-            this.custCCTextBox.Text = "0435981457";
+            this.custCCTextBox.Text = "1351236579460214";
             // 
             // label4
             // 
@@ -457,6 +457,7 @@
             // 
             // custMakePaymentBut
             // 
+            this.custMakePaymentBut.Enabled = false;
             this.custMakePaymentBut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.custMakePaymentBut.Location = new System.Drawing.Point(20, 374);
             this.custMakePaymentBut.Name = "custMakePaymentBut";
@@ -525,7 +526,6 @@
             this.merchContactTextBox.Name = "merchContactTextBox";
             this.merchContactTextBox.Size = new System.Drawing.Size(171, 27);
             this.merchContactTextBox.TabIndex = 81;
-            this.merchContactTextBox.Text = "0435981457";
             // 
             // merchAddressTextBox
             // 
@@ -534,7 +534,6 @@
             this.merchAddressTextBox.Name = "merchAddressTextBox";
             this.merchAddressTextBox.Size = new System.Drawing.Size(172, 27);
             this.merchAddressTextBox.TabIndex = 80;
-            this.merchAddressTextBox.Text = "123 fake street, sydney";
             // 
             // merchNameTextBox
             // 
@@ -543,7 +542,6 @@
             this.merchNameTextBox.Name = "merchNameTextBox";
             this.merchNameTextBox.Size = new System.Drawing.Size(172, 27);
             this.merchNameTextBox.TabIndex = 77;
-            this.merchNameTextBox.Text = "Chris Boctor";
             // 
             // merchProductNoLbl
             // 
@@ -552,9 +550,8 @@
             this.merchProductNoLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.merchProductNoLbl.Location = new System.Drawing.Point(149, 60);
             this.merchProductNoLbl.Name = "merchProductNoLbl";
-            this.merchProductNoLbl.Size = new System.Drawing.Size(49, 19);
+            this.merchProductNoLbl.Size = new System.Drawing.Size(0, 19);
             this.merchProductNoLbl.TabIndex = 79;
-            this.merchProductNoLbl.Text = "12345";
             // 
             // merchProductNameLbl
             // 
@@ -563,9 +560,8 @@
             this.merchProductNameLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.merchProductNameLbl.Location = new System.Drawing.Point(150, 39);
             this.merchProductNameLbl.Name = "merchProductNameLbl";
-            this.merchProductNameLbl.Size = new System.Drawing.Size(40, 19);
+            this.merchProductNameLbl.Size = new System.Drawing.Size(0, 19);
             this.merchProductNameLbl.TabIndex = 78;
-            this.merchProductNameLbl.Text = "Item";
             // 
             // label38
             // 
@@ -811,6 +807,7 @@
             // 
             // merchGetInfoBut
             // 
+            this.merchGetInfoBut.Enabled = false;
             this.merchGetInfoBut.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.merchGetInfoBut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.merchGetInfoBut.Location = new System.Drawing.Point(20, 374);
@@ -819,6 +816,7 @@
             this.merchGetInfoBut.TabIndex = 28;
             this.merchGetInfoBut.Text = "Get Info";
             this.merchGetInfoBut.UseVisualStyleBackColor = true;
+            this.merchGetInfoBut.Click += new System.EventHandler(this.merchGetInfoBut_Click);
             // 
             // tabBank
             // 
@@ -859,7 +857,6 @@
             this.bankCVVTextBox.Name = "bankCVVTextBox";
             this.bankCVVTextBox.Size = new System.Drawing.Size(65, 27);
             this.bankCVVTextBox.TabIndex = 81;
-            this.bankCVVTextBox.Text = "123";
             // 
             // bankCCTextBox
             // 
@@ -868,7 +865,6 @@
             this.bankCCTextBox.Name = "bankCCTextBox";
             this.bankCCTextBox.Size = new System.Drawing.Size(169, 27);
             this.bankCCTextBox.TabIndex = 80;
-            this.bankCCTextBox.Text = "0435981457";
             // 
             // bankCostLbl
             // 
@@ -877,9 +873,8 @@
             this.bankCostLbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bankCostLbl.Location = new System.Drawing.Point(147, 48);
             this.bankCostLbl.Name = "bankCostLbl";
-            this.bankCostLbl.Size = new System.Drawing.Size(45, 19);
+            this.bankCostLbl.Size = new System.Drawing.Size(0, 19);
             this.bankCostLbl.TabIndex = 79;
-            this.bankCostLbl.Text = "50.00";
             // 
             // label6
             // 
@@ -970,6 +965,7 @@
             // 
             // bankGetInfoBut
             // 
+            this.bankGetInfoBut.Enabled = false;
             this.bankGetInfoBut.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bankGetInfoBut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bankGetInfoBut.Location = new System.Drawing.Point(20, 374);
@@ -978,6 +974,7 @@
             this.bankGetInfoBut.TabIndex = 74;
             this.bankGetInfoBut.Text = "Get Info";
             this.bankGetInfoBut.UseVisualStyleBackColor = true;
+            this.bankGetInfoBut.Click += new System.EventHandler(this.bankGetInfoBut_Click);
             // 
             // bpTextBox
             // 
@@ -1086,6 +1083,7 @@
             // 
             // simMMBut
             // 
+            this.simMMBut.Enabled = false;
             this.simMMBut.ForeColor = System.Drawing.SystemColors.ControlText;
             this.simMMBut.Location = new System.Drawing.Point(182, 76);
             this.simMMBut.Name = "simMMBut";
@@ -1093,6 +1091,7 @@
             this.simMMBut.TabIndex = 17;
             this.simMMBut.Text = "Simulate Man-in-the-Middle";
             this.simMMBut.UseVisualStyleBackColor = true;
+            this.simMMBut.Click += new System.EventHandler(this.simMMBut_Click);
             // 
             // startBut
             // 
@@ -1124,6 +1123,7 @@
             this.logBox.ReadOnly = true;
             this.logBox.Size = new System.Drawing.Size(522, 275);
             this.logBox.TabIndex = 1;
+            this.logBox.TextChanged += new System.EventHandler(this.logBox_TextChanged);
             // 
             // lbllog
             // 

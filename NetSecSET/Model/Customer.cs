@@ -8,6 +8,7 @@ using NetSecSET.Model;
 
 using System.Security.Cryptography;
 using ArpanTECH;
+using System.IO;
 
 namespace NetSecSET.Model
 {
@@ -54,6 +55,9 @@ namespace NetSecSET.Model
             UInt32 PIMD = createPIMDHash(PI);
             UInt32 OIMD = createOIMDHash(OI);
 
+            writePIMD(PIMD);
+            writeOIMD(OIMD);
+
             UInt32 combinedHash = PIMD + OIMD;
 
             //byte[] POMD = BitConverter.GetBytes(createPOMD(combinedHash));
@@ -95,7 +99,31 @@ namespace NetSecSET.Model
             return m_Hash.getHash(combinedHash + "");
         }
 
+        public void writeEncryptedOI(string OI)
+        {
+            byte[] toEnc = Encoding.UTF8.GetBytes(OI);
+            byte[] encOI = RSAProvider.Encrypt(toEnc, true, true);
+            Util.Log(m_TAG, "Customer: Writing encrypted OI");
+            File.WriteAllBytes(@Util.m_OIEFileName, encOI);
+        }
 
+        public void writeEncryptedPI(string PI)
+        {
+            byte[] toEnc = Encoding.UTF8.GetBytes(PI);
+            byte[] encPI = RSAProvider.Encrypt(toEnc, true, true);
+            Util.Log(m_TAG, "Customer: Writing encrypted PI");
+            File.WriteAllBytes(@Util.m_PIEFileName, encPI);
+        }
+
+        public void writeOIMD(UInt32 OI)
+        {
+            File.WriteAllText(Util.m_OIEFileName, OI + "");
+        }
+
+        public void writePIMD(UInt32 PI)
+        {
+            File.WriteAllText(Util.m_PIEFileName, PI + "");
+        }
         
     }
 

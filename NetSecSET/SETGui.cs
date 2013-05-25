@@ -32,7 +32,7 @@ namespace NetSecSET
             
             Util.ClearLog();
             // Logging thread
-            logThread = new Thread(new ThreadStart(showLog));
+            logThread = new Thread(new ThreadStart(updateGUI));
             logThread.Start();
         }
 
@@ -56,7 +56,7 @@ namespace NetSecSET
             return d;
         }
 
-        private void showLog()
+        private void updateGUI()
         {
             /*EventLog eventLog = new EventLog();
 
@@ -80,7 +80,24 @@ namespace NetSecSET
             //logBox.Text = s;
             while (true)
             {
-                logBox.Invoke((MethodInvoker)(() => logBox.Text = Util.getLog()));
+                try
+                {
+                    // Log GUI Updates
+                    logBox.Invoke((MethodInvoker)(() => logBox.Text = Util.getLog()));
+
+                    // Merchant GUI Updates
+                    merchProductNameLbl.Invoke((MethodInvoker)(() => merchProductNameLbl.Text = m_merchant.getProductName()));
+                    merchProductNoLbl.Invoke((MethodInvoker)(() => merchProductNoLbl.Text = m_merchant.getProductNumber()));
+                    merchNameTextBox.Invoke((MethodInvoker)(() => merchNameTextBox.Text = m_merchant.getCustomerName()));
+                    merchAddressTextBox.Invoke((MethodInvoker)(() => merchAddressTextBox.Text = m_merchant.getAddress()));
+                    merchContactTextBox.Invoke((MethodInvoker)(() => merchContactTextBox.Text = m_merchant.getCustomerNumber()));
+
+                    // Bank GUI Updates
+                    bankCCTextBox.Invoke((MethodInvoker)(() => bankCCTextBox.Text = m_bank.getCCNb()));
+                    bankCostLbl.Invoke((MethodInvoker)(() => bankCostLbl.Text = m_bank.getCost()));
+                    bankCVVTextBox.Invoke((MethodInvoker)(() => bankCVVTextBox.Text = m_bank.getCVV()));
+                }
+                catch (Exception) { }
                 Thread.Sleep(50);
             }
         }       
@@ -95,6 +112,16 @@ namespace NetSecSET
             m_bank = new Bank(1024);
             m_customer = new Customer(1024);
             m_merchant = new Merchant(1024);
+
+            setButtonStates(true);
+        }
+
+        private void setButtonStates(bool state)
+        {
+            custMakePaymentBut.Enabled = state;
+            merchGetInfoBut.Enabled = state;
+            bankGetInfoBut.Enabled = state;
+            simMMBut.Enabled = state;
         }
 
         private void SETGui_FormClosed(object sender, FormClosedEventArgs e)
@@ -111,21 +138,15 @@ namespace NetSecSET
             */
 
             OrderInfo OI = new OrderInfo();
-            OI.writeOI(Convert.ToInt32(custProductNoLbl.Text), custProductNameLbl.Text, DateTime.Now, custNameTextBox.Text, custAddressTextBox.Text, Convert.ToInt32(custContactNoTextBox.Text));
+            OI.writeOI(Convert.ToInt32(custProductNoLbl.Text), custProductNameLbl.Text, DateTime.Now, custNameTextBox.Text, custAddressTextBox.Text, custContactNoTextBox.Text);
+            //m_customer.writeEncryptedOI(OI.getContent());
 
             PaymentInfo PI = new PaymentInfo();
-            PI.writePI(Convert.ToInt32(custCCTextBox.Text), Convert.ToInt32(custCVVTextBox.Text), Convert.ToDouble(custCostLbl.Text));
+            PI.writePI(custCCTextBox.Text, custCVVTextBox.Text, Convert.ToDouble(custCostLbl.Text));
+            //m_customer.writeEncryptedPI(PI.getContent());
 
             byte[] dualSignature = m_customer.createDualSignature();
             Util.WriteDualSignatureBytes(dualSignature);
-
-            startDecryption();
-        }
-
-        private void startDecryption()
-        {
-            m_merchant.decrypt();
-            m_bank.decrypt();
         }
 
         private void createCustKeyPair()
@@ -202,6 +223,59 @@ namespace NetSecSET
 
             benTextBox.Text = "(" + m_bank.publicKey.k + "," + m_bank.publicKey.n + ")";
             bdnTextBox.Text = "(" + m_bank.privateKey.k + "," + m_bank.privateKey.n + ")";*/
+        }
+
+        private void merchGetInfoBut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_merchant.verifyOrder();
+            }
+            catch (Exception)
+            {
+                // Clear the OI
+                Util.saveOI(Util.m_OIFileName, "");
+                Util.saveOI(Util.m_OIEFileName, "");
+            }
+        }
+
+        private void bankGetInfoBut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                m_bank.verifyPayment();
+            }
+            catch (Exception)
+            {
+                // Clear the PI
+                Util.savePI(Util.m_PIFileName, "");
+                Util.savePI(Util.m_PIEFileName, "");
+            }
+        }
+
+        private void logBox_TextChanged(object sender, EventArgs e)
+        {
+            logBox.SelectionStart = logBox.Text.Length;
+            logBox.ScrollToCaret();
+        }
+
+        private void simMMBut_Click(object sender, EventArgs e)
+        {
+            Attacker a = new Attacker(1024);
+
+            // Customer sends Info to Merchant and Bank
+            OrderInfo OI = new OrderInfo();
+            OI.writeOI(Convert.ToInt32(custProductNoLbl.Text), custProductNameLbl.Text, DateTime.Now, custNameTextBox.Text, custAddressTextBox.Text, custContactNoTextBox.Text);
+            //m_customer.writeEncryptedOI(OI.getContent());
+
+            PaymentInfo PI = new PaymentInfo();
+            PI.writePI(custCCTextBox.Text, custCVVTextBox.Text, Convert.ToDouble(custCostLbl.Text));
+            //m_customer.writeEncryptedPI(PI.getContent());
+
+            byte[] dualSignature = a.createDualSignature();
+            Util.WriteDualSignatureBytes(dualSignature);
+            // The Merchant and Bank will recieve the information signed with a different key
+            // An error should show in the Log box
         }
     }
 }

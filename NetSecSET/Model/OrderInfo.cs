@@ -12,15 +12,15 @@ namespace NetSecSET.Model
         public static string m_TAG = "OrderInfo";
         public static string m_OIFileName = "OI.txt";
 
-        public void writeOI(int pnumber, string pname, DateTime date, string custname, string custaddress, int custnumber)
+        public void writeOI(int pnumber, string pname, DateTime date, string custname, string custaddress, string custnumber)
         {
             // OI parameters
             string content = "Product Number: " + pnumber;
-            content += "\n Product Name: " + pname;
-            content += "\n Order Date: " + Convert.ToString(date);
-            content += "\n Customer Name: " + custname;
-            content += "\n Customer address: " + custaddress;
-            content += "\n Customer Contact: " + custnumber;
+            content += "\nProduct Name: " + pname;
+            content += "\nOrder Date: " + Convert.ToString(date);
+            content += "\nCustomer Name: " + custname;
+            content += "\nCustomer address: " + custaddress;
+            content += "\nCustomer Contact: " + custnumber;
             File.WriteAllText(@m_OIFileName, content); // write info to txt file
         }
 

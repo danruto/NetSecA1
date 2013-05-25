@@ -24,7 +24,7 @@ namespace NetSecSET.Model
         public Key privateKey { get; set; }
         private string m_privateKey;
         private string m_publicKey;
-
+        private bool dataVerifed;
 
         //assigning public and private keys to certificates for encryption/decryption
         public Bank(Key publicKey, Key privateKey)
@@ -42,7 +42,7 @@ namespace NetSecSET.Model
             m_privateKey = csp.ToXmlString(true).Replace("><", ">\r\n<");
             m_publicKey = csp.ToXmlString(false).Replace("><", ">\r\n<");
             RSAProvider = new RSAx(m_privateKey, keyLength);
-
+            dataVerifed = false;
             m_Hash = new Bernstein();
             createCertificate();
         }
@@ -53,7 +53,7 @@ namespace NetSecSET.Model
         }
 
         // DS, PI, OIMD
-        public void decrypt()
+        public void verifyPayment()
         {
             // Load the customer certificate
             string customerCert = Util.loadCertificateText(Util.m_CustCertFileName);
@@ -73,10 +73,9 @@ namespace NetSecSET.Model
             try
             {
                 string DS = Util.loadDualSignature();
-                //byte[] dualSignatureBytes = Convert.FromBase64String(DS);
                 byte[] dualSignatureBytes = Util.loadDualSignatureBytes();
-                string OI = Util.loadPI(Util.m_OIFileName);
-                UInt32 OIMD = hash.getHash(OI);
+                string OIStr = Util.loadOIMD(Util.m_OIEFileName);
+                UInt32 OIMD = Convert.ToUInt32(OIStr);
                 string PI = Util.loadOI(Util.m_PIFileName);
                 string POMD = hash.getHash(hash.getHash(PI) + OIMD + "") + "";
 
@@ -86,14 +85,81 @@ namespace NetSecSET.Model
                 string POMDDecrypted = Encoding.UTF8.GetString(decryptedDualSignatureBytes);
 
                 if (POMDDecrypted.Equals(POMD))
+                {
+                    dataVerifed = true;
                     Util.Log(m_TAG, "Decryption Succeeded");
+                }
                 else
                 {
+                    dataVerifed = false;
                     Util.Log(m_TAG, "POMD do not match!");
                     Util.Log(m_TAG, "DS: " + DS);
                 }
             }
-            catch (Exception ex) { Util.Log(m_TAG, "Bank: Error in decryption" + ex.ToString()); }
+            catch (Exception ex) { Util.Log(m_TAG, "Bank: Error in decryption. Keys do not match"); dataVerifed = false; }
+        }
+
+        public string getCost()
+        {
+            string cost = "";
+            if (dataVerifed)
+            {
+                try
+                {
+                    string PI = Util.loadPI(Util.m_PIFileName);
+
+                    Match match = Regex.Match(PI, @"(Payment Amount: [0-9]+)");
+                    if (match.Success)
+                    {
+                        cost = match.Groups[1].Value.Replace("Payment Amount: ", "");
+                        // Util.Log(m_TAG, "Merchant: Get customer number");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return cost;
+        }
+
+        public string getCVV()
+        {
+            string ccv = "";
+            if (dataVerifed)
+            {
+                try
+                {
+                    string PI = Util.loadPI(Util.m_PIFileName);
+
+                    Match match = Regex.Match(PI, @"(CVV Number: [0-9]+)");
+                    if (match.Success)
+                    {
+                        ccv = match.Groups[1].Value.Replace("CVV Number: ", "");
+                        // Util.Log(m_TAG, "Merchant: Get customer number");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return ccv;
+        }
+
+        public string getCCNb()
+        {
+            string ccNb = "";
+            if (dataVerifed)
+            {
+                try
+                {
+                    string PI = Util.loadPI(Util.m_PIFileName);
+
+                    Match match = Regex.Match(PI, @"(Credit Card Number: [0-9]+)");
+                    if (match.Success)
+                    {
+                        ccNb = match.Groups[1].Value.Replace("Credit Card Number: ", "");
+                        // Util.Log(m_TAG, "Merchant: Get customer number");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return ccNb;
         }
 
         public string hashOI(string PI)

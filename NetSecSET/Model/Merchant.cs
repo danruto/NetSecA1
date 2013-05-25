@@ -23,6 +23,7 @@ namespace NetSecSET.Model
         public Key privateKey { get; set; }
         private string m_privateKey;
         private string m_publicKey;
+        private bool dataVerified;
 
         public Merchant(Key publicKey, Key privateKey)
         {
@@ -39,7 +40,7 @@ namespace NetSecSET.Model
             m_privateKey = csp.ToXmlString(true).Replace("><", ">\r\n<");
             m_publicKey = csp.ToXmlString(false).Replace("><", ">\r\n<");
             RSAProvider = new RSAx(m_privateKey, keyLength);
-
+            dataVerified = false;
             m_Hash = new Bernstein();
             createCertificate();
         }
@@ -80,7 +81,8 @@ namespace NetSecSET.Model
 
         }*/
 
-        public void decrypt()
+        // DS, OI, PIMD
+        public void verifyOrder()
         {
             // Load the customer certificate
             string customerCert = Util.loadCertificateText(Util.m_CustCertFileName);
@@ -100,10 +102,9 @@ namespace NetSecSET.Model
             try
             {
                 string DS = Util.loadDualSignature();
-                //byte[] dualSignatureBytes = Convert.FromBase64String(DS);
                 byte[] dualSignatureBytes = Util.loadDualSignatureBytes();
-                string PI = Util.loadPI(Util.m_PIFileName);
-                UInt32 PIMD = hash.getHash(PI);
+                string PIMDString = Util.loadPIMD(Util.m_PIEFileName);
+                UInt32 PIMD = Convert.ToUInt32(PIMDString);
                 string OI = Util.loadOI(Util.m_OIFileName);
                 string POMD = hash.getHash(hash.getHash(OI) + PIMD + "") + "";
 
@@ -113,16 +114,20 @@ namespace NetSecSET.Model
                 string POMDDecrypted = Encoding.UTF8.GetString(decryptedDualSignatureBytes);
 
                 if (POMDDecrypted.Equals(POMD))
+                {
+                    dataVerified = true;
                     Util.Log(m_TAG, "Decryption Succeeded");
+                }
                 else
                 {
+                    dataVerified = false;
                     Util.Log(m_TAG, "POMD do not match!");
                     Util.Log(m_TAG, "DS: " + DS);
                 }
             }
-            catch (Exception ex) { Util.Log(m_TAG, "Merchant: Error in decryption" + ex.ToString()); }
+            catch (Exception ex) { Util.Log(m_TAG, "Merchant: Error in decryption. Keys do not match"); dataVerified = false; }
         }
-
+        
         // encrypting and decrypting OI, PIMD and OIMD
         public string hashOI(string OI)
         {
@@ -143,6 +148,110 @@ namespace NetSecSET.Model
         public bool verifyDS(string PI, int OIMD)
         {
             return decryptedMsg == hashOI_PIMD(PI, OIMD);
+        }
+
+        public string getProductNumber()
+        {
+            string productNumber = "";
+            if (dataVerified)
+            {
+                try
+                {
+                    string OI = Util.loadOI(Util.m_OIFileName);
+                    Match match = Regex.Match(OI, @"(Product Number: [0-9]+)");
+                    if (match.Success)
+                    {
+                        productNumber = match.Groups[1].Value.Replace("Product Number: ", "");
+                        //Util.Log(m_TAG, "Merchant: Get product number");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return productNumber;
+        }
+
+        public string getProductName()
+        {
+            string productName = "";
+            if (dataVerified)
+            {
+                try
+                {
+                    string OI = Util.loadOI(Util.m_OIFileName);
+
+                    Match match = Regex.Match(OI, @"(Product Name: [a-zA-Z]+)");
+                    if (match.Success)
+                    {
+                        productName = match.Groups[1].Value.Replace("Product Name: ", "");
+                        //Util.Log(m_TAG, "Merchant: Get product name");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return productName;
+        }
+
+        public string getCustomerName()
+        {
+            string customerName = "";
+            if (dataVerified)
+            {
+                try
+                {
+                    string OI = Util.loadOI(Util.m_OIFileName);
+
+                    Match match = Regex.Match(OI, @"(Customer Name: [a-zA-Z]+ [a-zA-Z]+)");
+                    if (match.Success)
+                    {
+                        customerName = match.Groups[1].Value.Replace("Customer Name: ", "");
+                        //Util.Log(m_TAG, "Merchant: Get customer name");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return customerName;
+        }
+
+        public string getAddress()
+        {
+            string address = "";
+            if (dataVerified)
+            {
+                try
+                {
+                    string OI = Util.loadOI(Util.m_OIFileName);
+
+                    Match match = Regex.Match(OI, @"(Customer address: [0-9]+ [a-zA-Z]+[a-zA-Z]+ [a-zA-Z]+, [a-zA-Z]+)");
+                    if (match.Success)
+                    {
+                        address = match.Groups[1].Value.Replace("Customer address: ", "");
+                        //Util.Log(m_TAG, "Merchant: Get address");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return address;
+        }
+
+        public string getCustomerNumber()
+        {
+            string customerNumber = "";
+            if (dataVerified)
+            {
+                try
+                {
+                    string OI = Util.loadOI(Util.m_OIFileName);
+
+                    Match match = Regex.Match(OI, @"(Customer Contact: [0-9]+)");
+                    if (match.Success)
+                    {
+                        customerNumber = match.Groups[1].Value.Replace("Customer Contact: ", "");
+                        // Util.Log(m_TAG, "Merchant: Get customer number");
+                    }
+                }
+                catch (Exception) { }
+            }
+            return customerNumber;
         }
 
     }

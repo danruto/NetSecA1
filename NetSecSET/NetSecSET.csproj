@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Attacker.cs" />
     <Compile Include="Security\RSAx.cs" />
     <Compile Include="Security\RSAxParameters.cs" />
     <Compile Include="Security\RSAxUtils.cs" />
