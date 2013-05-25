@@ -122,6 +122,7 @@
             this.lbllog = new System.Windows.Forms.Label();
             this.lblecrypt = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCustomer.SuspendLayout();
             this.tabMerchant.SuspendLayout();
@@ -193,6 +194,7 @@
             this.label41.Size = new System.Drawing.Size(21, 19);
             this.label41.TabIndex = 54;
             this.label41.Text = "E:";
+            this.label41.Visible = false;
             // 
             // ceTextBox
             // 
@@ -201,6 +203,7 @@
             this.ceTextBox.Size = new System.Drawing.Size(100, 37);
             this.ceTextBox.TabIndex = 53;
             this.ceTextBox.Text = "3";
+            this.ceTextBox.Visible = false;
             // 
             // label42
             // 
@@ -212,6 +215,7 @@
             this.label42.Size = new System.Drawing.Size(24, 19);
             this.label42.TabIndex = 52;
             this.label42.Text = "Q:";
+            this.label42.Visible = false;
             // 
             // label43
             // 
@@ -223,6 +227,7 @@
             this.label43.Size = new System.Drawing.Size(22, 19);
             this.label43.TabIndex = 51;
             this.label43.Text = "P:";
+            this.label43.Visible = false;
             // 
             // cqTextBox
             // 
@@ -231,6 +236,7 @@
             this.cqTextBox.Size = new System.Drawing.Size(100, 37);
             this.cqTextBox.TabIndex = 50;
             this.cqTextBox.Text = "11";
+            this.cqTextBox.Visible = false;
             // 
             // cpTextBox
             // 
@@ -239,6 +245,7 @@
             this.cpTextBox.Size = new System.Drawing.Size(100, 37);
             this.cpTextBox.TabIndex = 49;
             this.cpTextBox.Text = "2";
+            this.cpTextBox.Visible = false;
             // 
             // custCVVTextBox
             // 
@@ -267,6 +274,7 @@
             this.cdnTextBox.ReadOnly = true;
             this.cdnTextBox.Size = new System.Drawing.Size(100, 37);
             this.cdnTextBox.TabIndex = 25;
+            this.cdnTextBox.Visible = false;
             // 
             // custCCTextBox
             // 
@@ -287,6 +295,7 @@
             this.label4.Size = new System.Drawing.Size(45, 19);
             this.label4.TabIndex = 24;
             this.label4.Text = "(d, n)";
+            this.label4.Visible = false;
             // 
             // label10
             // 
@@ -306,6 +315,7 @@
             this.cenTextBox.ReadOnly = true;
             this.cenTextBox.Size = new System.Drawing.Size(100, 37);
             this.cenTextBox.TabIndex = 23;
+            this.cenTextBox.Visible = false;
             // 
             // label9
             // 
@@ -328,6 +338,7 @@
             this.label3.Size = new System.Drawing.Size(44, 19);
             this.label3.TabIndex = 22;
             this.label3.Text = "(e, n)";
+            this.label3.Visible = false;
             // 
             // custCostLbl
             // 
@@ -573,6 +584,7 @@
             this.label38.Size = new System.Drawing.Size(21, 19);
             this.label38.TabIndex = 76;
             this.label38.Text = "E:";
+            this.label38.Visible = false;
             // 
             // meTextBox
             // 
@@ -581,6 +593,7 @@
             this.meTextBox.Size = new System.Drawing.Size(100, 37);
             this.meTextBox.TabIndex = 75;
             this.meTextBox.Text = "5";
+            this.meTextBox.Visible = false;
             // 
             // label39
             // 
@@ -592,6 +605,7 @@
             this.label39.Size = new System.Drawing.Size(24, 19);
             this.label39.TabIndex = 74;
             this.label39.Text = "Q:";
+            this.label39.Visible = false;
             // 
             // label40
             // 
@@ -603,6 +617,7 @@
             this.label40.Size = new System.Drawing.Size(22, 19);
             this.label40.TabIndex = 73;
             this.label40.Text = "P:";
+            this.label40.Visible = false;
             // 
             // mqTextBox
             // 
@@ -611,6 +626,7 @@
             this.mqTextBox.Size = new System.Drawing.Size(100, 37);
             this.mqTextBox.TabIndex = 72;
             this.mqTextBox.Text = "13";
+            this.mqTextBox.Visible = false;
             // 
             // mpTextBox
             // 
@@ -620,6 +636,7 @@
             this.mpTextBox.Size = new System.Drawing.Size(100, 37);
             this.mpTextBox.TabIndex = 71;
             this.mpTextBox.Text = "5";
+            this.mpTextBox.Visible = false;
             // 
             // mdnTextBox
             // 
@@ -628,6 +645,7 @@
             this.mdnTextBox.ReadOnly = true;
             this.mdnTextBox.Size = new System.Drawing.Size(100, 37);
             this.mdnTextBox.TabIndex = 70;
+            this.mdnTextBox.Visible = false;
             // 
             // label23
             // 
@@ -639,6 +657,7 @@
             this.label23.Size = new System.Drawing.Size(45, 19);
             this.label23.TabIndex = 69;
             this.label23.Text = "(d, n)";
+            this.label23.Visible = false;
             // 
             // menTextBox
             // 
@@ -647,6 +666,7 @@
             this.menTextBox.ReadOnly = true;
             this.menTextBox.Size = new System.Drawing.Size(100, 37);
             this.menTextBox.TabIndex = 68;
+            this.menTextBox.Visible = false;
             // 
             // label28
             // 
@@ -658,6 +678,7 @@
             this.label28.Size = new System.Drawing.Size(44, 19);
             this.label28.TabIndex = 67;
             this.label28.Text = "(e, n)";
+            this.label28.Visible = false;
             // 
             // lblcvv
             // 
@@ -886,6 +907,7 @@
             this.label6.Size = new System.Drawing.Size(21, 19);
             this.label6.TabIndex = 27;
             this.label6.Text = "E:";
+            this.label6.Visible = false;
             // 
             // bdnTextBox
             // 
@@ -894,6 +916,7 @@
             this.bdnTextBox.ReadOnly = true;
             this.bdnTextBox.Size = new System.Drawing.Size(100, 37);
             this.bdnTextBox.TabIndex = 78;
+            this.bdnTextBox.Visible = false;
             // 
             // beTextBox
             // 
@@ -902,6 +925,7 @@
             this.beTextBox.Size = new System.Drawing.Size(100, 37);
             this.beTextBox.TabIndex = 26;
             this.beTextBox.Text = "5";
+            this.beTextBox.Visible = false;
             // 
             // label35
             // 
@@ -913,6 +937,7 @@
             this.label35.Size = new System.Drawing.Size(45, 19);
             this.label35.TabIndex = 77;
             this.label35.Text = "(d, n)";
+            this.label35.Visible = false;
             // 
             // label2
             // 
@@ -924,6 +949,7 @@
             this.label2.Size = new System.Drawing.Size(24, 19);
             this.label2.TabIndex = 21;
             this.label2.Text = "Q:";
+            this.label2.Visible = false;
             // 
             // benTextBox
             // 
@@ -932,6 +958,7 @@
             this.benTextBox.ReadOnly = true;
             this.benTextBox.Size = new System.Drawing.Size(100, 37);
             this.benTextBox.TabIndex = 76;
+            this.benTextBox.Visible = false;
             // 
             // label5
             // 
@@ -943,6 +970,7 @@
             this.label5.Size = new System.Drawing.Size(22, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "P:";
+            this.label5.Visible = false;
             // 
             // label37
             // 
@@ -954,6 +982,7 @@
             this.label37.Size = new System.Drawing.Size(44, 19);
             this.label37.TabIndex = 75;
             this.label37.Text = "(e, n)";
+            this.label37.Visible = false;
             // 
             // bqTextBox
             // 
@@ -962,6 +991,7 @@
             this.bqTextBox.Size = new System.Drawing.Size(100, 37);
             this.bqTextBox.TabIndex = 19;
             this.bqTextBox.Text = "13";
+            this.bqTextBox.Visible = false;
             // 
             // bankGetInfoBut
             // 
@@ -983,6 +1013,7 @@
             this.bpTextBox.Size = new System.Drawing.Size(100, 37);
             this.bpTextBox.TabIndex = 18;
             this.bpTextBox.Text = "5";
+            this.bpTextBox.Visible = false;
             // 
             // lblcvvbank
             // 
@@ -1159,12 +1190,24 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(700, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(357, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Developed by: Danny SOK, Christopher BOCTOR, Edward KHOU and Ken PHO";
+            // 
             // SETGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(1083, 568);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblecrypt);
             this.Controls.Add(this.panel2);
@@ -1287,5 +1330,6 @@
         private System.Windows.Forms.TextBox bankCVVTextBox;
         private System.Windows.Forms.TextBox bankCCTextBox;
         private System.Windows.Forms.Label bankCostLbl;
+        private System.Windows.Forms.Label label7;
     }
 }

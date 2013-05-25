@@ -27,240 +27,50 @@ namespace NetSecSET.Model
         private static Semaphore logSem = new Semaphore(1, 1);
 
         /**********************************************************************************
-         * Certificate Functions
-         */ 
-        public static Certificate loadCertificate(string fileName)
+         * IO Functions
+         */
+
+        public static void writeText(string fileName, string msg)
         {
-            Certificate cert = null;
-
-            if (File.Exists(fileName))
-            {
-                XmlSerializer s = new XmlSerializer(typeof(Certificate));
-                TextReader tr = new StreamReader(@fileName);
-                cert = (Certificate)s.Deserialize(tr);
-                Log(m_TAG, "loading Certificate");
-                tr.Close();
-            }
-
-            return cert;
-        }
-
-        public static void saveCertificate(string fileName, Certificate cert)
-        {
-            // save Certificate
-            XmlSerializer s = new XmlSerializer(typeof(Certificate));
-            TextWriter tw = new StreamWriter(@fileName);
-            s.Serialize(tw, cert);
-            Log(m_TAG, "saving Certificate");
-            tw.Close();
-        }
-
-        public static string loadCertificateText(string fileName)
-        {
-            return File.ReadAllText(@fileName);
-        }
-
-        public static void saveCertificateText(string fileName, string msg)
-        {
-            Log(m_TAG, "saving certificate");
             File.WriteAllText(@fileName, msg);
         }
 
-        /**********************************************************************************
-         * OI Functions
-         */
-        /*public static OrderInfo loadOI(string fileName)
+        public static void writeText(string fileName, string msg, string logMsg)
         {
-            OrderInfo OI = null;
-
-            if (File.Exists(fileName))
-            {
-                XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
-                TextReader tr = new StreamReader(@fileName);
-                OI = (OrderInfo)s.Deserialize(tr);
-                Log(m_TAG, "loading Order Information");
-                tr.Close();
-            }
-
-            return OI;
-        }*/
-
-        /*public static void saveOI(string fileName, OrderInfo OI)
-        {
-            // save OI 
-            XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
-            TextWriter tw = new StreamWriter(@fileName);
-            s.Serialize(tw, OI);
-            Log(m_TAG, "saving Order Information");
-            tw.Close();
-        }*/
-
-        public static void saveOI(string fileName, string content)
-        {
-            File.WriteAllText(@fileName, content);
+            Log(m_TAG, logMsg);
+            File.WriteAllText(@fileName, msg);
         }
 
-        public static string loadOI(string fileName)
+        public static string readText(string fileName)
         {
             if (File.Exists(@fileName))
-            {
                 return File.ReadAllText(@fileName);
-            }
             return "";
         }
 
-        public static byte[] loadOIBytes(string fileName)
+        public static void writeBytes(string fileName, byte[] msg)
+        {
+            File.WriteAllBytes(@fileName, msg);
+        }
+
+        public static void writeBytes(string fileName, byte[] msg, string logMsg)
+        {
+            Log(m_TAG, logMsg);
+            File.WriteAllBytes(@fileName, msg);
+        }
+
+        public static byte[] readBytes(string fileName)
         {
             if (File.Exists(@fileName))
-            {
                 return File.ReadAllBytes(@fileName);
-            }
             return new byte[0];
         }
-
-        public static string loadOIMD(string fileName)
-        {
-            if (File.Exists(@fileName))
-            {
-                return File.ReadAllText(@fileName);
-            }
-            return "";
-        }
-
-        /**********************************************************************************
-         * PI Functions
-         */
-        /*public static PaymentInfo loadPI(string fileName)
-        {
-            PaymentInfo PI = null;
-
-            if (File.Exists(fileName))
-            {
-                XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
-                TextReader tr = new StreamReader(@fileName);
-                PI = (PaymentInfo)s.Deserialize(tr);
-                Log(m_TAG, "loading Payment Information");
-                tr.Close();
-            }
-
-            return PI;
-        }*/
-
-        /*public static void savePI(string fileName, PaymentInfo PI)
-        {
-            // save PI
-            XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
-            TextWriter tw = new StreamWriter(@fileName);
-            s.Serialize(tw, PI);
-            Log(m_TAG, "saving Payment Information");
-            tw.Close();
-        }*/
-
-        public static void savePI(string fileName, string content)
-        {
-            File.WriteAllText(@fileName, content);
-        }
-
-        public static string loadPI(string fileName)
-        {
-            if (File.Exists(@fileName))
-            {
-                return File.ReadAllText(@fileName);
-            }
-            return "";
-        }
-
-        public static byte[] loadPIBytes(string fileName)
-        {
-            if (File.Exists(@fileName))
-            {
-                return File.ReadAllBytes(@fileName);
-            }
-            return new byte[0];
-        }
-
-        public static string loadPIMD(string fileName)
-        {
-            if (File.Exists(@fileName))
-            {
-                return File.ReadAllText(@fileName);
-            }
-            return "";
-        }
-
-        /**********************************************************************************
-         * Signature Write
-         */
-        public static void WriteDualSignature(string dualSignature)
-        {
-            // writing dual signature with random integers
-            File.WriteAllText(@m_DualSignatureFileName, dualSignature + "");
-        }
-
-        public static void WriteDualSignatureBytes(byte[] dualSignature)
-        {
-            File.WriteAllBytes(@m_DualSignatureFileName, dualSignature);
-        }
-
-        public static string loadDualSignature()
-        {
-            if (File.Exists(@m_DualSignatureFileName))
-                return File.ReadAllText(@m_DualSignatureFileName);
-            return "";
-        }
-
-        public static byte[] loadDualSignatureBytes()
-        {
-            if (File.Exists(@m_DualSignatureFileName))
-                return File.ReadAllBytes(@m_DualSignatureFileName);
-            return new byte[0];
-        }
-
 
         /**********************************************************************************
          * Logging Functions
          */
-        public static void Log2(string tag, string msg)
-        {
-            // Run eventcreate /ID 1 /L APPLICATION /T INFORMATION /SO NetSecSET /D “Registering” as administrator so the log will work
-            string s = "";
-            s += "\r\nLog Entry : ";
-            s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
-            s += "\n Tag: " + tag;
-            s += "\n Message :" + msg;
-            s += "\n-------------------------------";
-
-            string sSource;
-            string sLog;
-
-            sSource = "NetSecSET";
-            sLog = "Application";
-
-            try
-            {
-
-                if (!EventLog.SourceExists(sSource))
-                    EventLog.CreateEventSource(sSource, sLog);
-
-                // Write an informational entry to the event log   
-                EventLog.WriteEntry(sSource, s);
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.ToString());
-            }            
-        }
-
         public static void Log(string tag, string msg)
         {
-            // datetime of entry logged
-            /*string s = "";
-            s += "\r\nLog Entry : ";
-            s += "\n" + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
-            s += "\nTag: " + tag;
-            s += "\nMessage :" + msg;
-            s += "\n-------------------------------";*/
-
             string[] s = new string[5];
             s[0] = "\r\nLog Entry : ";
             s[1] = "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
@@ -270,7 +80,6 @@ namespace NetSecSET.Model
 
             lock (logSem)
             {
-                //File.AppendAllText(@m_LogFileName, s);
                 File.AppendAllLines(@m_LogFileName, s, Encoding.UTF8);
             }
         }
@@ -304,6 +113,8 @@ namespace NetSecSET.Model
             }
         }
 
+        #region oldCode
+
         public static void ClearLog2()
         {
             string sSource;
@@ -316,14 +127,129 @@ namespace NetSecSET.Model
                 if (EventLog.SourceExists(sSource))
                     EventLog.DeleteEventSource(sSource);
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
+        }
 
-            
+        public static void Log2(string tag, string msg)
+        {
+            // Run eventcreate /ID 1 /L APPLICATION /T INFORMATION /SO NetSecSET /D “Registering” as administrator so the log will work
+            string s = "";
+            s += "\r\nLog Entry : ";
+            s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
+            s += "\n Tag: " + tag;
+            s += "\n Message :" + msg;
+            s += "\n-------------------------------";
+
+            string sSource;
+            string sLog;
+
+            sSource = "NetSecSET";
+            sLog = "Application";
+
+            try
+            {
+
+                if (!EventLog.SourceExists(sSource))
+                    EventLog.CreateEventSource(sSource, sLog);
+
+                // Write an informational entry to the event log   
+                EventLog.WriteEntry(sSource, s);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.ToString());
+            }
+        }
+
+
+        /**********************************************************************************
+         * Certificate Functions
+         */ 
+        public static Certificate loadCertificate(string fileName)
+        {
+            Certificate cert = null;
+
+            if (File.Exists(fileName))
+            {
+                XmlSerializer s = new XmlSerializer(typeof(Certificate));
+                TextReader tr = new StreamReader(@fileName);
+                cert = (Certificate)s.Deserialize(tr);
+                Log(m_TAG, "loading Certificate");
+                tr.Close();
+            }
+
+            return cert;
+        }
+
+        public static void saveCertificate(string fileName, Certificate cert)
+        {
+            // save Certificate
+            XmlSerializer s = new XmlSerializer(typeof(Certificate));
+            TextWriter tw = new StreamWriter(@fileName);
+            s.Serialize(tw, cert);
+            Log(m_TAG, "saving Certificate");
+            tw.Close();
         }
 
         /**********************************************************************************
-         * Public Key Files
+         * OI Functions
          */
+        public static OrderInfo loadOI(string fileName)
+        {
+            OrderInfo OI = null;
+
+            if (File.Exists(fileName))
+            {
+                XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
+                TextReader tr = new StreamReader(@fileName);
+                OI = (OrderInfo)s.Deserialize(tr);
+                Log(m_TAG, "loading Order Information");
+                tr.Close();
+            }
+
+            return OI;
+        }
+
+        public static void saveOI(string fileName, OrderInfo OI)
+        {
+            // save OI 
+            XmlSerializer s = new XmlSerializer(typeof(OrderInfo));
+            TextWriter tw = new StreamWriter(@fileName);
+            s.Serialize(tw, OI);
+            Log(m_TAG, "saving Order Information");
+            tw.Close();
+        }
+
+        /**********************************************************************************
+         * PI Functions
+         */
+        public static PaymentInfo loadPI(string fileName)
+        {
+            PaymentInfo PI = null;
+
+            if (File.Exists(fileName))
+            {
+                XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
+                TextReader tr = new StreamReader(@fileName);
+                PI = (PaymentInfo)s.Deserialize(tr);
+                Log(m_TAG, "loading Payment Information");
+                tr.Close();
+            }
+
+            return PI;
+        }
+
+        public static void savePI(string fileName, PaymentInfo PI)
+        {
+            // save PI
+            XmlSerializer s = new XmlSerializer(typeof(PaymentInfo));
+            TextWriter tw = new StreamWriter(@fileName);
+            s.Serialize(tw, PI);
+            Log(m_TAG, "saving Payment Information");
+            tw.Close();
+        }
+
+        #endregion
 
     }
 }

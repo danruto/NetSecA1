@@ -20,10 +20,7 @@ namespace NetSecSET.Security
             Bernstein hash = new Bernstein();
             byte[] hashValue = hash.getBytes(hash.getHash(msg));
 
-            //double cipher = RSASec.encrypt(hashValue, privateKey);
             encryptedData = RSA.Encrypt(hashValue, false);
-
-            //digitalSignature = BitConverter.GetBytes(cipher);
 
             return encryptedData;
         }

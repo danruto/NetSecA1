@@ -122,6 +122,7 @@ namespace NetSecSET
             merchGetInfoBut.Enabled = state;
             bankGetInfoBut.Enabled = state;
             simMMBut.Enabled = state;
+            startBut.Enabled = !state;
         }
 
         private void SETGui_FormClosed(object sender, FormClosedEventArgs e)
@@ -146,7 +147,7 @@ namespace NetSecSET
             //m_customer.writeEncryptedPI(PI.getContent());
 
             byte[] dualSignature = m_customer.createDualSignature();
-            Util.WriteDualSignatureBytes(dualSignature);
+            Util.writeBytes(Util.m_DualSignatureFileName, dualSignature);
         }
 
         private void createCustKeyPair()
@@ -234,8 +235,8 @@ namespace NetSecSET
             catch (Exception)
             {
                 // Clear the OI
-                Util.saveOI(Util.m_OIFileName, "");
-                Util.saveOI(Util.m_OIEFileName, "");
+                Util.writeText(Util.m_OIFileName, "");
+                Util.writeText(Util.m_OIEFileName, "");
             }
         }
 
@@ -248,8 +249,8 @@ namespace NetSecSET
             catch (Exception)
             {
                 // Clear the PI
-                Util.savePI(Util.m_PIFileName, "");
-                Util.savePI(Util.m_PIEFileName, "");
+                Util.writeText(Util.m_PIFileName, "");
+                Util.writeText(Util.m_PIEFileName, "");
             }
         }
 
@@ -273,7 +274,7 @@ namespace NetSecSET
             //m_customer.writeEncryptedPI(PI.getContent());
 
             byte[] dualSignature = a.createDualSignature();
-            Util.WriteDualSignatureBytes(dualSignature);
+            Util.writeBytes(Util.m_DualSignatureFileName, dualSignature);
             // The Merchant and Bank will recieve the information signed with a different key
             // An error should show in the Log box
         }

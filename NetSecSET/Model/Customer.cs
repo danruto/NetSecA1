@@ -9,22 +9,18 @@ using NetSecSET.Model;
 using System.Security.Cryptography;
 using ArpanTECH;
 using System.IO;
+using System.Numerics;
 
 namespace NetSecSET.Model
 {
     class Customer
     {
-        private string m_TAG = "Customer";
+        private const string m_TAG = "Customer";
         private Bernstein m_Hash;
         private Certificate m_Certificate;
         private RSAx RSAProvider;
         private string m_privateKey;
         private string m_publicKey;
-
-        public Customer(Key publicKey, Key privateKey)        
-        {
-            //setup(publicKey, privateKey);
-        }
 
         public Customer(int keyLength)
         {
@@ -48,8 +44,8 @@ namespace NetSecSET.Model
             Util.Log(m_TAG, "creating dual signature...");
 
             // obtain both the OI and PI from file
-            string OI = Util.loadOI(Util.m_OIFileName);
-            string PI = Util.loadPI(Util.m_PIFileName);
+            string OI = Util.readText(Util.m_OIFileName);
+            string PI = Util.readText(Util.m_PIFileName);
 
             // create the hashes for both files
             UInt32 PIMD = createPIMDHash(PI);
@@ -60,24 +56,13 @@ namespace NetSecSET.Model
 
             UInt32 combinedHash = PIMD + OIMD;
 
-            //byte[] POMD = BitConverter.GetBytes(createPOMD(combinedHash));
             string POMDstr = createPOMD(combinedHash) + "";
             byte[] POMD = Encoding.UTF8.GetBytes(POMDstr);
 
-            //UInt32 DS = RSASec.encrypt(POMD, RSAProvider);
             // Encrypt using Private Key
             RSAProvider.RSAxHashAlgorithm = RSAxParameters.RSAxHashAlgorithm.SHA1;
             byte[] dualSignatureBytes = RSAProvider.Encrypt(POMD, true, true);
-            string fk2 = Convert.ToBase64String(dualSignatureBytes);
-            byte[] fk3 = Encoding.UTF8.GetBytes(fk2);
 
-           /* try
-            {
-                byte[] fk = RSAProvider.Decrypt(dualSignatureBytes, false, true);
-                string fk4 = Encoding.UTF8.GetString(fk);
-                Util.Log(m_TAG, "cDS(): WORKS!");
-            }
-            catch (Exception ex) { Util.Log(m_TAG, "cDS(): Error, \n" + ex.ToString()); };*/
             return dualSignatureBytes;
         }
 
@@ -99,6 +84,23 @@ namespace NetSecSET.Model
             return m_Hash.getHash(combinedHash + "");
         }
 
+        public void writeOIMD(UInt32 OI)
+        {
+            Util.writeText(Util.m_OIEFileName, OI + "");
+        }
+
+        public void writePIMD(UInt32 PI)
+        {
+            Util.writeText(Util.m_PIEFileName, PI + "");
+        }
+
+        #region oldCode
+
+        public Customer(Key publicKey, Key privateKey)
+        {
+
+        }
+
         public void writeEncryptedOI(string OI)
         {
             byte[] toEnc = Encoding.UTF8.GetBytes(OI);
@@ -115,16 +117,7 @@ namespace NetSecSET.Model
             File.WriteAllBytes(@Util.m_PIEFileName, encPI);
         }
 
-        public void writeOIMD(UInt32 OI)
-        {
-            File.WriteAllText(Util.m_OIEFileName, OI + "");
-        }
-
-        public void writePIMD(UInt32 PI)
-        {
-            File.WriteAllText(Util.m_PIEFileName, PI + "");
-        }
-        
+        #endregion
     }
 
     

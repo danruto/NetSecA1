@@ -55,7 +55,6 @@
     <Compile Include="SETGui.Designer.cs">
       <DependentUpon>SETGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="Log.cs" />
     <Compile Include="Model\Bank.cs" />
     <Compile Include="Model\Certificate.cs" />
     <Compile Include="Main.cs">
