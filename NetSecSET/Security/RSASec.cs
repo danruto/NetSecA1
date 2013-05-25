@@ -12,8 +12,8 @@ namespace NetSecSET.Model
     public static class RSASec
     {
         private static string m_TAG = "RSA";
-        //private static RSACryptoServiceProvider RSAprovider = new RSACryptoServiceProvider();
-
+        // private static RSACryptoServiceProvider RSAprovider = new RSACryptoServiceProvider();
+  
         /*public static RSACryptoServiceProvider getRSA()
         {
             return RSAprovider;
@@ -22,8 +22,9 @@ namespace NetSecSET.Model
         public static UInt32 encrypt (string msg)
         {
             return 0;
-        }
+        }a
 
+        // data encryption 
         public static UInt32 encrypt(UInt32 msg, RSACryptoServiceProvider RSAprovider)
         {
             byte[] toEnc = BitConverter.GetBytes(msg);
@@ -51,8 +52,8 @@ namespace NetSecSET.Model
             Util.Log(m_TAG, "encrypt(): hash INT32");
             int n = privateKey.n;
             double value = Math.Pow(hash, privateKey.k);
-            //double c = (Math.Pow(hash, privateKey.k) % privateKey.n);
-            // c = m^e mod n;
+            // double c = (Math.Pow(hash, privateKey.k) % privateKey.n);
+            // RSA c = m^e mod n; where (e,n) are values for public key
             double c = ((value % n) + n) % n;
 
             return c;
@@ -65,10 +66,11 @@ namespace NetSecSET.Model
             return c;
         }
 
+        // encrypt-decrypt-encrypt
         public static double decrypt(double digitalSignature, Key publicKey)
         {
             Util.Log(m_TAG, "decrypt(): digitalSignature");
-            //double m = (Math.Pow(digitalSignature, publicKey.k) % publicKey.n);
+            // double m = (Math.Pow(digitalSignature, publicKey.k) % publicKey.n);
             double value = Math.Pow(digitalSignature, publicKey.k);
             int n = publicKey.n;
             double m = ((value % n) + n) % n;
