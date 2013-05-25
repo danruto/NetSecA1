@@ -143,18 +143,29 @@ namespace NetSecSET.Model
         /**********************************************************************************
          * Signature Write
          */
-        public static void WriteDualSignature(UInt32 dualSignature)
+        public static void WriteDualSignature(string dualSignature)
         {
             // writing dual signature with random integers
             File.WriteAllText(@m_DualSignatureFileName, dualSignature + "");
-        
         }
 
-        public static UInt32 loadDualSignature()
+        public static void WriteDualSignatureBytes(byte[] dualSignature)
+        {
+            File.WriteAllBytes(@m_DualSignatureFileName, dualSignature);
+        }
+
+        public static string loadDualSignature()
         {
             if (File.Exists(@m_DualSignatureFileName))
-                return Convert.ToUInt32(File.ReadAllText(@m_DualSignatureFileName));
-            return 0;
+                return File.ReadAllText(@m_DualSignatureFileName);
+            return "";
+        }
+
+        public static byte[] loadDualSignatureBytes()
+        {
+            if (File.Exists(@m_DualSignatureFileName))
+                return File.ReadAllBytes(@m_DualSignatureFileName);
+            return new byte[0];
         }
 
 
@@ -195,16 +206,24 @@ namespace NetSecSET.Model
         public static void Log(string tag, string msg)
         {
             // datetime of entry logged
-            string s = "";
+            /*string s = "";
             s += "\r\nLog Entry : ";
-            s += "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
-            s += "\n Tag: " + tag;
-            s += "\n Message :" + msg;
-            s += "\n-------------------------------";
+            s += "\n" + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
+            s += "\nTag: " + tag;
+            s += "\nMessage :" + msg;
+            s += "\n-------------------------------";*/
+
+            string[] s = new string[5];
+            s[0] = "\r\nLog Entry : ";
+            s[1] = "\n " + DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
+            s[2] = "\n Tag: " + tag;
+            s[3] = "\n Message :" + msg;
+            s[4] = "\n-------------------------------";
 
             lock (logSem)
             {
-                File.AppendAllText(@m_LogFileName, s);
+                //File.AppendAllText(@m_LogFileName, s);
+                File.AppendAllLines(@m_LogFileName, s, Encoding.UTF8);
             }
         }
 
@@ -215,6 +234,10 @@ namespace NetSecSET.Model
                 if (File.Exists(@m_LogFileName))
                 {
                     return File.ReadAllText(@m_LogFileName);
+                    /*string log = "\n";
+                    foreach (string s in lines)
+                    { log += s + "\n"; }
+                    return log;*/
                 }
                 return "";
             }

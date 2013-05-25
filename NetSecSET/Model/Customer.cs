@@ -7,6 +7,7 @@ using NetSecSET.Security;
 using NetSecSET.Model;
 
 using System.Security.Cryptography;
+using ArpanTECH;
 
 namespace NetSecSET.Model
 {
@@ -15,31 +16,33 @@ namespace NetSecSET.Model
         private string m_TAG = "Customer";
         private Bernstein m_Hash;
         private Certificate m_Certificate;
-        private RSACryptoServiceProvider RSAProvider;
-        public Key publicKey { get; set; }
-        public Key privateKey { get; set; }
+        private RSAx RSAProvider;
+        private string m_privateKey;
+        private string m_publicKey;
 
         public Customer(Key publicKey, Key privateKey)        
         {
-            setup(publicKey, privateKey);
+            //setup(publicKey, privateKey);
         }
 
-        public void setup(Key publicKey, Key privateKey)
+        public Customer(int keyLength)
         {
-            m_Hash = new Bernstein();
-            RSAProvider = new RSACryptoServiceProvider();
-            this.publicKey = publicKey;
-            this.privateKey = privateKey;
+            RSACryptoServiceProvider csp = new RSACryptoServiceProvider(keyLength);
+            // Include both Private and Public key
+            m_privateKey = csp.ToXmlString(true);//.Replace("><", ">\r\n<");
+            m_publicKey = csp.ToXmlString(false);//.Replace("><", ">\r\n<");
+            RSAProvider = new RSAx(m_privateKey, keyLength);
 
+            m_Hash = new Bernstein();
             createCertificate();
         }
 
         public void createCertificate()
         {
-            m_Certificate = new Certificate(Certificate.t_CertificateType.CustomerCertificate, RSAProvider);
+            m_Certificate = new Certificate(Certificate.t_CertificateType.CustomerCertificate, RSAProvider, m_publicKey);
         }
 
-        public UInt32 createDualSignature()
+        public byte[] createDualSignature()
         {
             Util.Log(m_TAG, "creating dual signature...");
 
@@ -53,15 +56,25 @@ namespace NetSecSET.Model
 
             UInt32 combinedHash = PIMD + OIMD;
 
-            UInt32 POMD = createPOMD(combinedHash);
+            //byte[] POMD = BitConverter.GetBytes(createPOMD(combinedHash));
+            string POMDstr = createPOMD(combinedHash) + "";
+            byte[] POMD = Encoding.UTF8.GetBytes(POMDstr);
 
-            UInt32 DS = RSASec.encrypt(POMD, RSAProvider);
+            //UInt32 DS = RSASec.encrypt(POMD, RSAProvider);
+            // Encrypt using Private Key
+            RSAProvider.RSAxHashAlgorithm = RSAxParameters.RSAxHashAlgorithm.SHA1;
+            byte[] dualSignatureBytes = RSAProvider.Encrypt(POMD, true, true);
+            string fk2 = Convert.ToBase64String(dualSignatureBytes);
+            byte[] fk3 = Encoding.UTF8.GetBytes(fk2);
 
-            return DS;
-            //RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
-            //byte[] encryptedData = RSA.Encrypt(POMD, false);
-            //return encryptedData;
-            
+           /* try
+            {
+                byte[] fk = RSAProvider.Decrypt(dualSignatureBytes, false, true);
+                string fk4 = Encoding.UTF8.GetString(fk);
+                Util.Log(m_TAG, "cDS(): WORKS!");
+            }
+            catch (Exception ex) { Util.Log(m_TAG, "cDS(): Error, \n" + ex.ToString()); };*/
+            return dualSignatureBytes;
         }
 
         public UInt32 createPIMDHash(string PI)

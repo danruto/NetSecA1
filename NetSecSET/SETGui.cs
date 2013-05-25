@@ -87,10 +87,14 @@ namespace NetSecSET
 
         private void startBut_Click(object sender, EventArgs e)
         {
-            createCustKeyPair();
-            createMerchKeyPair();
-            createBankKeyPair();
-            showKeyPairs();
+            //createCustKeyPair();
+            //createMerchKeyPair();
+            //createBankKeyPair();
+            //showKeyPairs();
+
+            m_bank = new Bank(1024);
+            m_customer = new Customer(1024);
+            m_merchant = new Merchant(1024);
         }
 
         private void SETGui_FormClosed(object sender, FormClosedEventArgs e)
@@ -112,8 +116,8 @@ namespace NetSecSET
             PaymentInfo PI = new PaymentInfo();
             PI.writePI(Convert.ToInt32(custCCTextBox.Text), Convert.ToInt32(custCVVTextBox.Text), Convert.ToDouble(custCostLbl.Text));
 
-            UInt32 dualSignature = m_customer.createDualSignature();
-            Util.WriteDualSignature(dualSignature);
+            byte[] dualSignature = m_customer.createDualSignature();
+            Util.WriteDualSignatureBytes(dualSignature);
 
             startDecryption();
         }
@@ -121,7 +125,7 @@ namespace NetSecSET
         private void startDecryption()
         {
             m_merchant.decrypt();
-            //m_bank.decrypt();
+            m_bank.decrypt();
         }
 
         private void createCustKeyPair()
@@ -190,14 +194,14 @@ namespace NetSecSET
 
         private void showKeyPairs()
         {
-            cenTextBox.Text = "(" + m_customer.publicKey.k + "," + m_customer.publicKey.n + ")";
+            /*cenTextBox.Text = "(" + m_customer.publicKey.k + "," + m_customer.publicKey.n + ")";
             cdnTextBox.Text = "(" + m_customer.privateKey.k + "," + m_customer.privateKey.n + ")";
 
             menTextBox.Text = "(" + m_merchant.publicKey.k + "," + m_merchant.publicKey.n + ")";
             mdnTextBox.Text = "(" + m_merchant.privateKey.k + "," + m_merchant.privateKey.n + ")";
 
             benTextBox.Text = "(" + m_bank.publicKey.k + "," + m_bank.publicKey.n + ")";
-            bdnTextBox.Text = "(" + m_bank.privateKey.k + "," + m_bank.privateKey.n + ")";
+            bdnTextBox.Text = "(" + m_bank.privateKey.k + "," + m_bank.privateKey.n + ")";*/
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NetSecSET.Model;
 
 using System.Security.Cryptography;
+using ArpanTECH;
 
 namespace NetSecSET.Security
 {
@@ -32,6 +33,15 @@ namespace NetSecSET.Security
             Bernstein hash = new Bernstein();
             Util.Log(m_TAG, "creating digital signature");
             return RSASec.encrypt(msg, RSAprovider);
+        }
+
+        public static UInt32 createDigitalSignature(UInt32 msg, RSAx RSAProvider)
+        {
+            Bernstein hash = new Bernstein();
+            Util.Log(m_TAG, "creating digital signature");
+
+            // Encrypt using PRIVATE key with OAEP off
+            return BitConverter.ToUInt32(RSAProvider.Encrypt(BitConverter.GetBytes(msg), true, false), 0);
         }
     }
 }
